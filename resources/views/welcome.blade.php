@@ -12,9 +12,9 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body class="h-full bg-primary-light">
-        <div id="app" class="">
-            <home />
+    <body class="h-full bg-primary-light m-0">
+        <div id="app" class="h-full m-0">
+            <home class="h-full m-0"/>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

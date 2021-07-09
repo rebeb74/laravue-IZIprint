@@ -185,7 +185,9 @@ module.exports = {
             '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
             inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
             none: 'none',
-            sidebar: '30px 0px 50px 5px #3F3F3D'
+            sidebar: '5px 0px 15px 0px #3F3F3D',
+            toolbartop: '0px 10px 15px 0px #3F3F3D',
+            toolbarbot: '0px 10px 15px 0px #3F3F3D'
         },
         caretColor: (theme) => theme('colors'),
         contrast: {
@@ -249,6 +251,7 @@ module.exports = {
             1: '1 1 0%',
             auto: '1 1 auto',
             initial: '0 1 auto',
+            content: '1 0 auto',
             none: 'none',
         },
         flexGrow: {

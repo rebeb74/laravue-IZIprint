@@ -11,6 +11,7 @@ import Devis from './components/pages/Devis.vue';
 
 export default {
     history: createWebHistory(),
+    linkActiveClass: 'active',
     routes: [{
             path: '/',
             component: Home

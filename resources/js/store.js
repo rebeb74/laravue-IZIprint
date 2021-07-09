@@ -6,7 +6,7 @@ export default {
     state() {
         return {
             pages: [],
-            sidebarIsOpen: true
+            sidebarIsOpen: false
         }
     },
     mutations: {

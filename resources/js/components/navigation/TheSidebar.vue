@@ -6,7 +6,7 @@
   ></div>
   <div
     :class="sidebarIsOpen"
-    class="h-full w-72 bg-primary fixed z-50 overflow-scroll"
+    class="h-full w-72 bg-primary fixed z-50 overflow-scroll pb-10"
     ref="sidebar"
   >
     <div :class="menuItem" @click="closeSidebar()" class="mb-5 pr-5">
@@ -22,15 +22,15 @@
     </div>
 
     <div class="px-5 divide-y divide-primary-light">
-      <div
+      <router-link
         v-for="page in $store.state.pages"
         :key="page.id"
         :class="menuItem"
         class="hover:bg-primary-light px-6"
-        @click="page.key"
+        :to="page.key"
       >
         {{ page.name }}
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -44,7 +44,7 @@ export default {
         : "shadow-none transform -translate-x-72 duration-500";
     },
     menuItem() {
-      return "w-full h-14 flex flex-col justify-center items-start font-medium text-xl text-gray-200 cursor-pointer";
+      return "w-full h-14 flex flex-col justify-center items-start font-medium text-lg text-gray-200 cursor-pointer";
     },
   },
   methods: {
