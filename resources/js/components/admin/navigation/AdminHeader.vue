@@ -2,7 +2,7 @@
   <div
     class="
       flex
-      h-32
+      h-1/10
       bg-primary-dark
       justify-center
       items-center
@@ -31,7 +31,7 @@
         <i class="fas fa-bars"></i>
       </div>
       <div class="lg:absolute lg:left-2 lg:top-1.5 w-16 z-40">
-        <router-link to="/">
+        <router-link to="/admin">
           <img
             src="../../../../assets/logo/logo-light.png"
             alt="Logo IZIprint light"
@@ -48,14 +48,18 @@
           xl:mx-2
           lg:text-base
         "
-        v-for="page in $store.state.pages"
-        :key="page.id"
       >
         <router-link
-          :to="'/' + page.key"
-          class="px-2 py-1 lg:px-3 lg:py-2 rounded hover:bg-secondary-dark"
+          :to="'/admin/site'"
+          class="px-2 py-1 lg:px-3 lg:py-2 rounded hover:bg-secondary-dark mx-2"
         >
-          {{ page.name }}
+          Réglages du site
+        </router-link>
+        <router-link
+          :to="'/admin/pages'"
+          class="px-2 py-1 lg:px-3 lg:py-2 rounded hover:bg-secondary-dark mx-2"
+        >
+          Réglages des pages
         </router-link>
       </div>
     </div>

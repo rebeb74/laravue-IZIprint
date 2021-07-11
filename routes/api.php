@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ImagesUploadController;
 use App\Http\Controllers\Api\PagesController;
 use App\Models\Page;
 use Illuminate\Http\Request;
@@ -20,9 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('pages', 'Api\PagesController@index');
 Route::resource('pages', PagesController::class)->only(['index', 'show']);
-
-// Route::get('pages', function(Request $request) {
-//     return Page::all();
-// });
+Route::post('/upload', [ImagesUploadController::class, 'upload'])->name('upload');

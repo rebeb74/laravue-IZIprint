@@ -15,8 +15,8 @@ class AddForeignKeyToPagesTable extends Migration
     public function up()
     {
         Schema::table('pages', function (Blueprint $table) {
-            $table->string('image_id')->index()->nullable();
-            $table->foreign('image_id')->references('id')->on('images');
+            $table->string('image_upload_id')->index()->nullable();
+            $table->foreign('image_upload_id')->references('id')->on('images_upload');
         });
     }
 
@@ -28,8 +28,8 @@ class AddForeignKeyToPagesTable extends Migration
     public function down()
     {
         Schema::table('pages', function (Blueprint $table) {
-            $table->dropColumn('image_id');
-            $table->dropForeign('image_id');
+            $table->dropColumn('image_upload_id');
+            $table->dropForeign('image_upload_id');
         });
     }
 }

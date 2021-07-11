@@ -1,4 +1,13 @@
 import { createWebHistory } from "vue-router";
+
+import AdminIndex from './components/admin/AdminIndex.vue';
+import AdminSite from './components/admin/site/AdminSite.vue';
+import AdminSiteGeneral from './components/admin/site/AdminSiteGeneral.vue';
+import AdminSiteOrder from './components/admin/site/AdminSiteOrder.vue';
+import AdminSiteSocials from './components/admin/site/AdminSiteSocials.vue';
+import AdminPages from './components/admin/pages/AdminPages.vue';
+
+import IndexPage from './components/pages/IndexPage.vue';
 import HomePage from './components/pages/HomePage.vue';
 import EnseignesPage from './components/pages/EnseignesPage.vue';
 import VehiculesPage from './components/pages/VehiculesPage.vue';
@@ -8,8 +17,7 @@ import PlvPage from './components/pages/PlvPage.vue';
 import AboutUsPage from './components/pages/AboutUsPage.vue';
 import ContactPage from './components/pages/ContactPage.vue';
 import DevisPage from './components/pages/DevisPage.vue';
-import AdminPage from './components/admin/AdminPage.vue';
-import IndexPage from './components/pages/IndexPage.vue';
+
 import The404Page from './components/The404Page.vue';
 
 export default {
@@ -18,8 +26,37 @@ export default {
     routes: [
         {
             path: '/admin',
-            component: AdminPage,
+            component: AdminIndex,
             name: 'admin',
+            children: [
+                {
+                    path: 'site',
+                    component: AdminSite,
+                    name: 'site',
+                    children: [
+                        {
+                            path: 'general',
+                            component: AdminSiteGeneral,
+                            name: 'general',
+                        },
+                        {
+                            path: 'order',
+                            component: AdminSiteOrder,
+                            name: 'order',
+                        },
+                        {
+                            path: 'socials',
+                            component: AdminSiteSocials,
+                            name: 'socials',
+                        },
+                    ]
+                },
+                {
+                    path: 'pages',
+                    component: AdminPages,
+                    name: 'pages',
+                },
+            ]
         },
         {
             path: '/',

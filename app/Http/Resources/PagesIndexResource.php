@@ -20,7 +20,7 @@ class PagesIndexResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'order' => $this->order,
-            'image_id' => $this->image_id,
+            'image_upload_id' => $this->image_upload_id,
         ];
     }
 }
