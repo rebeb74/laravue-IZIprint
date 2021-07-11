@@ -19,8 +19,6 @@ class PagesIndexResource extends JsonResource
             'name' => $this->name,
             'title' => $this->title,
             'description' => $this->description,
-            'og_url' => $this->og_url,
-            'social_title' => $this->social_title,
             'order' => $this->order,
             'image_id' => $this->image_id,
         ];

@@ -17,12 +17,10 @@ class CreatePagesTable extends Migration
             $table->uuid('id')->primary();
             $table->timestamps();
 
+            $table->string('key');
             $table->string('name');
             $table->string('title');
             $table->text('description');
-            $table->string('og_url');
-            $table->string('key');
-            $table->string('social_title');
             $table->unsignedTinyInteger('order')->unique();
 
             

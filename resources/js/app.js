@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import { createRouter } from 'vue-router';
 import { createStore } from 'vuex';
+import { createMetaManager } from 'vue-meta'
 import App from "./App.vue";
 import routes from './routes';
 import store from './store';
@@ -12,6 +13,7 @@ const router = createRouter(routes);
 const vuex = createStore(store);
 const app = createApp(App);
 
-app.use(vuex);
 app.use(router);
+app.use(vuex);
+app.use(createMetaManager())
 app.mount("#app");

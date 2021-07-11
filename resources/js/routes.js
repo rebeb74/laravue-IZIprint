@@ -24,6 +24,7 @@ export default {
         {
             path: '/',
             component: IndexPage,
+            name:'',
             children: [
                 {
                     path: '',

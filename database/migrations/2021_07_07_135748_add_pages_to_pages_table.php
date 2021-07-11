@@ -22,8 +22,6 @@ class AddPagesToPagesTable extends Migration
                     'name' => 'Accueil',
                     'title' => 'TITRE Accueil',
                     'description' => 'Description Accueil',
-                    'og_url' => 'OG_URL Accueil',
-                    'social_title' => 'SOCIAL TITLE Accueil',
                     'order' => 1,
                 ],
                 [
@@ -31,8 +29,6 @@ class AddPagesToPagesTable extends Migration
                     'name' => 'Enseignes',
                     'title' => 'TITRE Enseignes',
                     'description' => 'Description Enseignes',
-                    'og_url' => 'OG_URL Enseignes',
-                    'social_title' => 'SOCIAL TITLE Enseignes',
                     'order' => 2,
                 ],
                 [
@@ -40,8 +36,6 @@ class AddPagesToPagesTable extends Migration
                     'name' => 'Véhicules',
                     'title' => 'TITRE Véhicules',
                     'description' => 'Description Véhicules',
-                    'og_url' => 'OG_URL Véhicules',
-                    'social_title' => 'SOCIAL TITLE Véhicules',
                     'order' => 3,
                 ],
                 [
@@ -49,8 +43,6 @@ class AddPagesToPagesTable extends Migration
                     'name' => 'Signalétique',
                     'title' => 'TITRE Signalétique',
                     'description' => 'Description Signalétique',
-                    'og_url' => 'OG_URL Signalétique',
-                    'social_title' => 'SOCIAL TITLE Signalétique',
                     'order' => 4,
                 ],
                 [
@@ -58,8 +50,6 @@ class AddPagesToPagesTable extends Migration
                     'name' => 'Packaging',
                     'title' => 'TITRE Packaging',
                     'description' => 'Description Packaging',
-                    'og_url' => 'OG_URL Packaging',
-                    'social_title' => 'SOCIAL TITLE Packaging',
                     'order' => 5,
                 ],
                 [
@@ -67,8 +57,6 @@ class AddPagesToPagesTable extends Migration
                     'name' => 'PLV',
                     'title' => 'TITRE PLV',
                     'description' => 'Description PLV',
-                    'og_url' => 'OG_URL PLV',
-                    'social_title' => 'SOCIAL TITLE PLV',
                     'order' => 6,
                 ],
                 [
@@ -76,8 +64,6 @@ class AddPagesToPagesTable extends Migration
                     'name' => 'A propos',
                     'title' => 'TITRE A propos',
                     'description' => 'Description A propos',
-                    'og_url' => 'OG_URL A propos',
-                    'social_title' => 'SOCIAL TITLE A propos',
                     'order' => 7,
                 ],
                 [
@@ -85,8 +71,6 @@ class AddPagesToPagesTable extends Migration
                     'name' => 'Devis',
                     'title' => 'TITRE Devis',
                     'description' => 'Description Devis',
-                    'og_url' => 'OG_URL Devis',
-                    'social_title' => 'SOCIAL TITLE Devis',
                     'order' => 8,
                 ],
                 [
@@ -94,8 +78,6 @@ class AddPagesToPagesTable extends Migration
                     'name' => 'Contact',
                     'title' => 'TITRE Contact',
                     'description' => 'Description Contact',
-                    'og_url' => 'OG_URL Contact',
-                    'social_title' => 'SOCIAL TITLE Contact',
                     'order' => 9,
                 ],
             );
@@ -106,8 +88,6 @@ class AddPagesToPagesTable extends Migration
                 $page->name = $datum['name'];
                 $page->title = $datum['title'];
                 $page->description = $datum['description'];
-                $page->og_url = $datum['og_url'];
-                $page->social_title = $datum['social_title'];
                 $page->order = $datum['order'];
                 $page->save();
             }

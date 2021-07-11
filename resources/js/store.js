@@ -6,10 +6,14 @@ export default {
     state() {
         return {
             pages: [],
+            dataIsLoaded: false,
             sidebarIsOpen: false
         }
     },
     mutations: {
+        setDataIsLoaded(state) {
+            state.dataIsLoaded = true;
+        },
         setPages(state, payload) {
             state.pages = payload;
         },
@@ -25,6 +29,7 @@ export default {
                     result => {
                         let pages = objectToArray(result.data).sort(sortPages);
                         context.commit('setPages', pages);
+                        context.commit('setDataIsLoaded');
                     })
                 .catch(
                     (error) => {
@@ -33,6 +38,8 @@ export default {
         }
     },
     getters: {
-
+        getPages(state) {
+            return state.pages;
+        }
     }
 };
