@@ -16,7 +16,7 @@ class AddForeignKeyToPagesTable extends Migration
     {
         Schema::table('pages', function (Blueprint $table) {
             $table->string('image_upload_id')->index()->nullable();
-            $table->foreign('image_upload_id')->references('id')->on('images_upload');
+            $table->foreign('image_upload_id')->references('id')->on('image_uploads');
         });
     }
 

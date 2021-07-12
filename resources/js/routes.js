@@ -6,6 +6,9 @@ import AdminSiteGeneral from './components/admin/site/AdminSiteGeneral.vue';
 import AdminSiteOrder from './components/admin/site/AdminSiteOrder.vue';
 import AdminSiteSocials from './components/admin/site/AdminSiteSocials.vue';
 import AdminPages from './components/admin/pages/AdminPages.vue';
+import AdminPagesGeneral from './components/admin/pages/AdminPagesGeneral.vue';
+import AdminPagesBlocks from './components/admin/pages/AdminPagesBlocks.vue';
+import AdminPagesGallery from './components/admin/pages/AdminPagesGallery.vue';
 
 import IndexPage from './components/pages/IndexPage.vue';
 import HomePage from './components/pages/HomePage.vue';
@@ -28,16 +31,18 @@ export default {
             path: '/admin',
             component: AdminIndex,
             name: 'admin',
+            redirect: '/admin/site',
             children: [
                 {
                     path: 'site',
                     component: AdminSite,
                     name: 'site',
+                    redirect: '/admin/site/general',
                     children: [
                         {
                             path: 'general',
                             component: AdminSiteGeneral,
-                            name: 'general',
+                            name: 'site-general',
                         },
                         {
                             path: 'order',
@@ -55,6 +60,32 @@ export default {
                     path: 'pages',
                     component: AdminPages,
                     name: 'pages',
+                    redirect: '/admin/pages/general',
+                    children: [
+                        {
+                            path: ':key',
+                            component: AdminPagesGeneral,
+                            name: 'pages-key',
+                            redirect: '/admin/pages/accueil/general',
+                            children: [
+                                {
+                                    path: 'general',
+                                    component: AdminPagesGeneral,
+                                    name: 'pages-general',
+                                },
+                                {
+                                    path: 'blocks',
+                                    component: AdminPagesBlocks,
+                                    name: 'blocks',
+                                },
+                                {
+                                    path: 'gallery',
+                                    component: AdminPagesGallery,
+                                    name: 'gallery',
+                                },
+                            ]
+                        },
+                    ]
                 },
             ]
         },

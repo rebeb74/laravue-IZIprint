@@ -2,7 +2,7 @@
   <div
     class="
       flex
-      h-1/10
+      h-16
       bg-primary-dark
       justify-center
       items-center
@@ -10,27 +10,17 @@
       w-full
       z-48
       shadow-xl
-      flex-col
-          text-gray-200 text-4xl
+      text-gray-200
     "
   >
-    <div class="mb-2 text-secondary">
-        <h2>Administration IZIprint</h2>
-    </div>
-    <div class="flex-row flex mt-2">
+    <div class="w-full lg:w-3/4 self-start flex h-full justify-start items-center">
       <div
         @click="openSidebar()"
-        class="
-          absolute
-          left-4
-          top-3.3
-          lg:hidden
-          cursor-pointer
-        "
+        class="text-3xl mx-4 lg:hidden cursor-pointer"
       >
         <i class="fas fa-bars"></i>
       </div>
-      <div class="lg:absolute lg:left-2 lg:top-1.5 w-16 z-40">
+      <div class="w-16 justify-center items-center mx-2">
         <router-link to="/admin">
           <img
             src="../../../../assets/logo/logo-light.png"
@@ -38,15 +28,21 @@
           />
         </router-link>
       </div>
+      <div class="text-secondary justify-center items-center mx-2 text-2xl">
+        Administration
+      </div>
       <div
         class="
           hidden
-          lg:block
           text-gray-200 text-sm
           mx-0.5
           lg:mx-1
           xl:mx-2
           lg:text-base
+          self-center
+          lg:flex
+          lg:justify-center
+          lg:items-center
         "
       >
         <router-link
@@ -61,6 +57,15 @@
         >
           Réglages des pages
         </router-link>
+      </div>
+    </div>
+
+    <div class="hidden w-1/4 self-end lg:flex justify-end items-center h-full">
+      <div
+        :to="'/admin/site'"
+        class="px-2 py-1 lg:px-3 lg:py-2 rounded hover:bg-secondary-dark mx-2"
+      >
+        Se déconnecter de l'admin
       </div>
     </div>
   </div>

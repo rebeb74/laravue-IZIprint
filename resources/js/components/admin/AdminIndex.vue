@@ -1,17 +1,18 @@
 <template>
-    <admin-sidebar></admin-sidebar>
-    <admin-header></admin-header>
-    <router-view></router-view>
+  <admin-header></admin-header>
+  <main class="pt-16 flex flex-col h-full m-0">
+    <router-view class="flex-content"></router-view>
+  </main>
 </template>
 
 <script>
-import AdminSidebar from './navigation/AdminSidebar.vue'
-import AdminHeader from './navigation/AdminHeader.vue'
+import AdminSidebar from "./navigation/AdminSidebar.vue";
+import AdminHeader from "./navigation/AdminHeader.vue";
 
 export default {
-    components: {
-        AdminHeader,
-        AdminSidebar
-    }    
-}
+  components: {
+    AdminHeader,
+    AdminSidebar,
+  },
+};
 </script>
