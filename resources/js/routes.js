@@ -60,30 +60,22 @@ export default {
                     path: 'pages',
                     component: AdminPages,
                     name: 'pages',
-                    redirect: '/admin/pages/general',
+                    redirect: '/admin/pages/accueil/general',
                     children: [
                         {
-                            path: ':key',
+                            path: ':key/general',
                             component: AdminPagesGeneral,
-                            name: 'pages-key',
-                            redirect: '/admin/pages/accueil/general',
-                            children: [
-                                {
-                                    path: 'general',
-                                    component: AdminPagesGeneral,
-                                    name: 'pages-general',
-                                },
-                                {
-                                    path: 'blocks',
-                                    component: AdminPagesBlocks,
-                                    name: 'blocks',
-                                },
-                                {
-                                    path: 'gallery',
-                                    component: AdminPagesGallery,
-                                    name: 'gallery',
-                                },
-                            ]
+                            name: 'pages-general',
+                        },
+                        {
+                            path: ':key/blocks',
+                            component: AdminPagesBlocks,
+                            name: 'blocks',
+                        },
+                        {
+                            path: ':key/gallery',
+                            component: AdminPagesGallery,
+                            name: 'gallery',
                         },
                     ]
                 },

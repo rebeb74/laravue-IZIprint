@@ -50,9 +50,9 @@
           v-for="page in $store.state.pages"
           :key="page.id"
           :to="'/' + page.key"
-          @click="toggleSubMenu(page.key)"
         >
           <div
+            @click="toggleSubMenu(page.key)"
             class="
               hover:bg-primary-light
               px-6
@@ -71,21 +71,33 @@
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="page.key ? '/admin/pages/'+page.key+'/general' : '/admin/pages/accueil/general'"
+              :to="
+                page.key
+                  ? '/admin/pages/' + page.key + '/general'
+                  : '/admin/pages/accueil/general'
+              "
             >
               Général
             </router-link>
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="page.key ? '/admin/pages/'+page.key+'/Blocks' : '/admin/pages/accueil/Blocks'"
+              :to="
+                page.key
+                  ? '/admin/pages/' + page.key + '/Blocks'
+                  : '/admin/pages/accueil/Blocks'
+              "
             >
               Blocks
             </router-link>
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="page.key ? '/admin/pages/'+page.key+'/gallery' : '/admin/pages/accueil/gallery'"
+              :to="
+                page.key
+                  ? '/admin/pages/' + page.key + '/gallery'
+                  : '/admin/pages/accueil/gallery'
+              "
             >
               Gallerie d'images
             </router-link>
@@ -139,16 +151,16 @@ export default {
     },
     openSubMenu(key) {
       if (this.activeSubMenu === key) {
-        return "max-h-80 transition-max-height duration-1000";
+        return "max-h-80 transition-max-height duration-500";
       } else {
-        return "max-h-0 transition-max-height duration-1000";
+        return "max-h-0 transition-max-height duration-500";
       }
     },
     rotateArrow(key) {
       if (this.activeSubMenu === key) {
-        return "transform rotate-90 transition duration-500";
+        return "transform rotate-90 transition duration-250";
       } else {
-        return "transition duration-1000";
+        return "transition duration-500";
       }
     },
   },
