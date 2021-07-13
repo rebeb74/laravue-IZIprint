@@ -23333,7 +23333,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _hoisted_1 = {
-  "class": "\r\n      flex\r\n      h-16\r\n      bg-primary-dark\r\n      justify-center\r\n      items-center\r\n      fixed\r\n      w-full\r\n      z-48\r\n      shadow-xl\r\n      text-gray-200\r\n    "
+  "class": "\n      flex\n      h-16\n      bg-primary-dark\n      justify-center\n      items-center\n      fixed\n      w-full\n      z-48\n      shadow-xl\n      text-gray-200\n    "
 };
 var _hoisted_2 = {
   "class": "w-full lg:w-3/4 self-start flex h-full justify-start items-center"
@@ -23363,7 +23363,7 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 );
 
 var _hoisted_7 = {
-  "class": "\r\n          hidden\r\n          text-gray-200 text-sm\r\n          mx-0.5\r\n          lg:mx-1\r\n          xl:mx-2\r\n          lg:text-base\r\n          self-center\r\n          lg:flex\r\n          lg:justify-center\r\n          lg:items-center\r\n        "
+  "class": "\n          hidden\n          text-gray-200 text-sm\n          mx-0.5\n          lg:mx-1\n          xl:mx-2\n          lg:text-base\n          self-center\n          lg:flex\n          lg:justify-center\n          lg:items-center\n        "
 };
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Réglages du site ");
@@ -23638,7 +23638,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       onClick: function onClick($event) {
         return $options.toggleSubMenu(page.key);
       },
-      "class": ["\r\n              hover:bg-primary-light\r\n              px-6\r\n              flex\r\n              justify-between\r\n              items-center\r\n            ", [$options.menuItem]]
+      "class": ["\n              hover:bg-primary-light\n              px-6\n              flex\n              justify-between\n              items-center\n            ", [$options.menuItem]]
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(page.name), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
@@ -24208,7 +24208,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _hoisted_1 = {
-  "class": "\r\n\t\t\th-96\r\n      lg:h-52\r\n      bg-primary-dark\r\n      mt-10\r\n      flex flex-col\r\n      justify-center\r\n      items-center\r\n      text-gray-200\r\n    "
+  "class": "\n\t\t\th-96\n      lg:h-52\n      bg-primary-dark\n      mt-10\n      flex flex-col\n      justify-center\n      items-center\n      text-gray-200\n    "
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
@@ -24287,7 +24287,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _hoisted_1 = {
-  "class": "\r\n      flex\r\n      h-16\r\n      bg-primary-dark\r\n      justify-center\r\n      items-center\r\n      fixed\r\n      w-full\r\n      z-48\r\n      shadow-xl\r\n    "
+  "class": "\n      flex\n      h-16\n      bg-primary-dark\n      justify-center\n      items-center\n      fixed\n      w-full\n      z-48\n      shadow-xl\n    "
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
@@ -24314,7 +24314,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $options.openSidebar();
     }),
-    "class": "\r\n        text-gray-200 text-4xl\r\n        absolute\r\n        left-4\r\n        top-3.3\r\n        lg:hidden\r\n        cursor-pointer\r\n      "
+    "class": "\n        text-gray-200 text-4xl\n        absolute\n        left-4\n        top-3.3\n        lg:hidden\n        cursor-pointer\n      "
   }, [_hoisted_2]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/"
   }, {
