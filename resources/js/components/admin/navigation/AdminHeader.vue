@@ -2,7 +2,8 @@
   <div
     class="
       flex
-      h-16
+      h-32
+      lg:h-16
       bg-primary-dark
       justify-center
       items-center
@@ -11,9 +12,13 @@
       z-48
       shadow-xl
       text-gray-200
+      flex-col
+      lg:flex-row
     "
   >
-    <div class="w-full lg:w-3/4 self-start flex h-full justify-start items-center">
+    <div
+      class="w-full mb-2 mt-4 lg:my-0 lg:w-3/4 self-start flex lg:h-full justify-start items-center"
+    >
       <div
         @click="openSidebar()"
         class="text-3xl mx-4 lg:hidden cursor-pointer"
@@ -58,6 +63,21 @@
           Réglages des pages
         </router-link>
       </div>
+    </div>
+
+    <div class="lg:hidden text-gray-200 text-lg self-center mt-2 mb-4">
+      <router-link
+        :to="'/admin/site'"
+        class="bg-primary px-4 py-2 mx-2  rounded hover:bg-secondary-dark"
+      >
+        Réglages Site
+      </router-link>
+      <router-link
+        :to="'/admin/pages'"
+        class="bg-primary px-4 py-2 mx-2  rounded hover:bg-secondary-dark"
+      >
+        Réglages Pages
+      </router-link>
     </div>
 
     <div class="hidden w-1/4 self-end lg:flex justify-end items-center h-full">

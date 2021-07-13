@@ -21,5 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('pages', PagesController::class)->only(['index', 'show']);
+Route::resource('pages', PagesController::class)->only(['index', 'show', 'update']);
 Route::post('/upload', [ImagesUploadController::class, 'upload'])->name('upload');

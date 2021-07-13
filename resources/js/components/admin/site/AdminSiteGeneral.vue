@@ -1,3 +1,5 @@
 <template>
-    <div>GENERAL</div>
+    <div>
+        GENERAL
+    </div>
 </template>

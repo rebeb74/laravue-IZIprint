@@ -21,7 +21,7 @@ class CreatePagesTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->text('description');
-            $table->unsignedTinyInteger('order')->unique();
+            $table->unsignedTinyInteger('order');
 
             
         });

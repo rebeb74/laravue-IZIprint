@@ -119,7 +119,7 @@ export default {
                 {
                     path: 'about_us',
                     component: AboutUsPage,
-                    name: 'about-us',
+                    name: 'about_us',
                 },
                 {
                     path: 'contact',

@@ -1,5 +1,5 @@
 <template>
-    <div>GENERAL2</div>
+    <div>GENERAL {{ $route.params.key }}</div>
 </template>
 
 <script>

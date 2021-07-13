@@ -18,4 +18,18 @@ class PagesController extends Controller
     {
         return Page::findOrFail($id);
     }
+
+    public function update(Request $request, $id)
+    {
+        $page = Page::findOrFail($id);
+        // dd($page);
+        $page->key = $request->key;
+        $page->name = $request->name;
+        $page->title = $request->title;
+        $page->description = $request->description;
+        $page->order = $request->order;
+        $page->save();
+        
+        return Page::findOrFail($id);
+    }
 }

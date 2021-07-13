@@ -1,5 +1,5 @@
 <template>
-    <div>BLOCKS</div>
+    <div>BLOCKS {{ $route.params.key }}</div>
 </template>
 
 <script>
