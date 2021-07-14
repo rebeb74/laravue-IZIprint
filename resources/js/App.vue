@@ -4,7 +4,7 @@
       content ? `${content} | IZIprint` : `IZIprint`
     }}</template>
   </metainfo>
-  <router-view v-if="store.state.dataIsLoaded"></router-view>
+  <router-view v-if="store.state.pagesAreLoaded"></router-view>
 </template>
 
 <script>
@@ -36,6 +36,7 @@ export default {
   },
   beforeCreate() {
     this.$store.dispatch("loadPages");
+    this.$store.dispatch('loadSiteSuffix');
   },
 };
 </script>

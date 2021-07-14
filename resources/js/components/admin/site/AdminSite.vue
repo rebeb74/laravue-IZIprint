@@ -1,74 +1,21 @@
 <template>
   <div class="m-auto w-xs lg:w-5xl py-5 lg:px-5">
-    <div class="w-full rounded-lg bg-primary shadow-lg p-5">
-      <div class="text-xl text-gray-200">Ordre des pages</div>
-      <div>
-        <draggable
-          v-model="pages"
-          @change="log"
-          class="p-5 flex justify-start items-center"
-        >
-          <transition-group>
-            <div
-              v-for="page in $store.state.pages"
-              :key="page.id"
-              class="
-                px-3
-                py-2
-                mx-1
-                bg-primary-light
-                rounded-lg
-                cursor-pointer
-                focus:cursor-pointer
-              "
-            >
-              {{ page.name }}
-            </div>
-          </transition-group>
-        </draggable>
-      </div>
-    </div>
+    <admin-site-order></admin-site-order>
+    <admin-site-general></admin-site-general>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
-import { useStore } from "vuex";
-import { VueDraggableNext } from "vue-draggable-next";
-import _ from "lodash";
-import { updatePage } from "../../../shared/db/pagesService";
+import AdminSiteOrder from './AdminSiteOrder.vue';
+import AdminSiteGeneral from './AdminSiteGeneral.vue';
 
 export default {
   components: {
-    draggable: VueDraggableNext,
+    AdminSiteOrder,
+    AdminSiteGeneral
   },
   setup() {
-    const store = useStore();
-    const pages = ref(store.state.pages);
-    console.log(pages.value);
-
-    const log = (event) => {
-      const orderedPages = [];
-      pages.value.forEach((page, index) => {
-        orderedPages.push({ ...page, order: index });
-      });
-      store.commit("setPages", orderedPages);
-
-      orderedPages.forEach((page) => {
-        updatePage(page)
-          .then((result) => {
-            console.log(result);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      });
-    };
-
-    return {
-      pages,
-      log,
-    };
+    
   },
 };
 </script>

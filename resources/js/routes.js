@@ -85,9 +85,10 @@ export default {
             path: '/',
             component: IndexPage,
             name:'',
+            redirect: '/home',
             children: [
                 {
-                    path: '',
+                    path: 'home',
                     component: HomePage,
                     name: 'home',
                 },

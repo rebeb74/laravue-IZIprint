@@ -18,7 +18,7 @@ class AddPagesToPagesTable extends Migration
         Schema::table('pages', function (Blueprint $table) {
             $data =  array(
                 [
-                    'key' => '',
+                    'key' => 'home',
                     'name' => 'Accueil',
                     'title' => 'TITRE Accueil',
                     'description' => 'Description Accueil',

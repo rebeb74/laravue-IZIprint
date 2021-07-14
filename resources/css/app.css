@@ -7,3 +7,35 @@
 .active {
     @apply bg-primary;
 }
+
+.card {
+    @apply w-full rounded-lg bg-primary shadow-lg p-5 mb-5;
+}
+
+.card-title {
+    @apply text-xl text-gray-200 uppercase;
+}
+
+.card-subtitle {
+    @apply text-gray-200 italic font-light;
+}
+
+.label {
+    top: 0%;
+    transform: translateY(-50%);
+}
+
+.empty input:not(:focus) + label {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.input:not(:focus) + label {
+    color: rgba(70, 70, 70, 1);
+}
+.input {
+    border-width: 1px;
+}
+.input:focus {
+    @apply border-primary-dark;
+    outline: none;
+}

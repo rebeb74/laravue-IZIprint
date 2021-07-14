@@ -28,8 +28,8 @@ class AddForeignKeyToPagesTable extends Migration
     public function down()
     {
         Schema::table('pages', function (Blueprint $table) {
+            $table->dropForeign(['image_upload_id']);
             $table->dropColumn('image_upload_id');
-            $table->dropForeign('image_upload_id');
         });
     }
 }

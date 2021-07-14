@@ -6,19 +6,23 @@ export default {
     state() {
         return {
             pages: [],
-            dataIsLoaded: false,
-            sidebarIsOpen: false
+            pagesAreLoaded: false,
+            sidebarIsOpen: false,
+            siteSuffix: ''
         }
     },
     mutations: {
-        setDataIsLoaded(state) {
-            state.dataIsLoaded = true;
+        setPagesAreLoaded(state) {
+            state.pagesAreLoaded = true;
         },
         setPages(state, payload) {
             state.pages = payload;
         },
         toogleSidebar(state) {
             state.sidebarIsOpen = !state.sidebarIsOpen;
+        },
+        setSiteSuffix(state, payload) {
+            state.siteSuffix = payload;
         }
 
     },
@@ -27,13 +31,25 @@ export default {
             axios.get('/api/pages')
                 .then(
                     result => {
-                        let pages = objectToArray(result.data).sort(sortPages);
+                        const pages = objectToArray(result.data).sort(sortPages);
                         context.commit('setPages', pages);
-                        context.commit('setDataIsLoaded');
+                        context.commit('setPagesAreLoaded');
                     })
                 .catch(
                     (error) => {
-                        console.error("error", error)
+                        console.error("error", error);
+                    })
+        },
+        loadSiteSuffix(context) {
+            axios.get('/api/site')
+                .then(
+                    result => {
+                        console.log(result)
+                        context.commit('setSiteSuffix', result.data.suffix);
+                    })
+                .catch(
+                    (error) => {
+                        console.error("error", error);
                     })
         }
     },

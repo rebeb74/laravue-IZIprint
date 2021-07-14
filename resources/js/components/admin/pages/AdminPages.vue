@@ -46,11 +46,7 @@
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="
-                page.key
-                  ? '/admin/pages/' + page.key + '/general'
-                  : '/admin/pages/accueil/general'
-              "
+              :to="'/admin/pages/' + page.key + '/general'"
               @click="closeSidebar()"
             >
               Général
@@ -58,11 +54,7 @@
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="
-                page.key
-                  ? '/admin/pages/' + page.key + '/Blocks'
-                  : '/admin/pages/accueil/Blocks'
-              "
+              :to="'/admin/pages/' + page.key + '/general'"
               @click="closeSidebar()"
             >
               Blocks
@@ -70,11 +62,7 @@
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="
-                page.key
-                  ? '/admin/pages/' + page.key + '/gallery'
-                  : '/admin/pages/accueil/gallery'
-              "
+              :to="'/admin/pages/' + page.key + '/general'"
               @click="closeSidebar()"
             >
               Gallerie d'images
@@ -119,33 +107,21 @@
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="
-                page.key
-                  ? '/admin/pages/' + page.key + '/general'
-                  : '/admin/pages/accueil/general'
-              "
+              :to="'/admin/pages/' + page.key + '/general'"
             >
               Général
             </router-link>
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="
-                page.key
-                  ? '/admin/pages/' + page.key + '/Blocks'
-                  : '/admin/pages/accueil/Blocks'
-              "
+              :to="'/admin/pages/' + page.key + '/general'"
             >
               Blocks
             </router-link>
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="
-                page.key
-                  ? '/admin/pages/' + page.key + '/gallery'
-                  : '/admin/pages/accueil/gallery'
-              "
+              :to="'/admin/pages/' + page.key + '/general'"
             >
               Gallerie d'images
             </router-link>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ImagesUploadController;
 use App\Http\Controllers\Api\PagesController;
+use App\Http\Controllers\Api\SiteController;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +23,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('pages', PagesController::class)->only(['index', 'show', 'update']);
-Route::post('/upload', [ImagesUploadController::class, 'upload'])->name('upload');
+Route::post('/upload', [ImagesUploadController::class, 'upload'])->name('upload.store');
+Route::get('/site', [SiteController::class, 'index'])->name('site.index');
+Route::post('/site', [SiteController::class, 'store'])->name('site.store');
