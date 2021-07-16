@@ -19,8 +19,8 @@ class CreateImageUploadsTable extends Migration
 
             $table->string('name');
             $table->string('original_name');
-            $table->string('alt_tag');
-            $table->string('title_tag');
+            $table->string('alt_tag')->nullable();
+            $table->string('title_tag')->nullable();
             $table->string('url');
             $table->string('thumb_url');
 

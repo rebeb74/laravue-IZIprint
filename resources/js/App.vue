@@ -36,7 +36,7 @@ export default {
   },
   beforeCreate() {
     this.$store.dispatch("loadPages");
-    this.$store.dispatch('loadSiteSuffix');
+    this.$store.dispatch('loadSiteData');
   },
 };
 </script>

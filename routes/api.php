@@ -23,6 +23,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('pages', PagesController::class)->only(['index', 'show', 'update']);
-Route::post('/upload', [ImagesUploadController::class, 'upload'])->name('upload.store');
+
+Route::post('/upload', [ImagesUploadController::class, 'store'])->name('upload.store');
+Route::delete('/upload/{id}', [ImagesUploadController::class, 'delete'])->name('upload.delete');
+
 Route::get('/site', [SiteController::class, 'index'])->name('site.index');
 Route::post('/site', [SiteController::class, 'store'])->name('site.store');

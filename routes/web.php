@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('/{any?}', function () {
-    $seo = Storage::disk('public')->get('seo.json');
+    $seo = Storage::disk('local')->get('seo.json');
     return view('welcome')->with('seo', json_decode($seo, true));
 })->where('any', '^(?!api\/)[\/\w\.-]*');

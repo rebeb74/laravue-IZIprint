@@ -8,12 +8,21 @@ export default {
             pages: [],
             pagesAreLoaded: false,
             sidebarIsOpen: false,
-            siteSuffix: ''
+            siteData: {},
+            isLoading: false,
+            siteDataIsLoaded: false,
+            uploadedImage: null
         }
     },
     mutations: {
         setPagesAreLoaded(state) {
             state.pagesAreLoaded = true;
+        },
+        setSiteDataIsLoaded(state) {
+            state.siteDataIsLoaded = true;
+        },
+        setSiteDataIsNotLoaded(state) {
+            state.siteDataIsLoaded = false;
         },
         setPages(state, payload) {
             state.pages = payload;
@@ -21,8 +30,14 @@ export default {
         toogleSidebar(state) {
             state.sidebarIsOpen = !state.sidebarIsOpen;
         },
-        setSiteSuffix(state, payload) {
-            state.siteSuffix = payload;
+        setSiteData(state, payload) {
+            state.siteData = payload;
+        },
+        setIsLoading(state) {
+            state.isLoading = !state.isLoading;
+        },
+        setUploadedImage(state, payload) {
+            state.uploadedImage = payload;
         }
 
     },
@@ -40,12 +55,13 @@ export default {
                         console.error("error", error);
                     })
         },
-        loadSiteSuffix(context) {
+        loadSiteData(context) {
             axios.get('/api/site')
                 .then(
                     result => {
-                        console.log(result)
-                        context.commit('setSiteSuffix', result.data.suffix);
+                        context.commit('setSiteDataIsNotLoaded');
+                        context.commit('setSiteData', result.data);
+                        context.commit('setSiteDataIsLoaded');
                     })
                 .catch(
                     (error) => {

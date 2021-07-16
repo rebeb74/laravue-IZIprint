@@ -9,7 +9,7 @@
       items-center
       fixed
       w-full
-      z-48
+      z-50
       shadow-xl
       text-gray-200
       flex-col

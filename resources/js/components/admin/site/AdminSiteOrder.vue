@@ -6,7 +6,7 @@
       <draggable
         v-model="pages"
         @change="change"
-        class="py-5 flex justify-start items-center"
+        class="py-5 flex flex-col lg:flex-row justify-start items-center"
       >
         <transition-group>
           <div
@@ -15,11 +15,17 @@
             class="
               px-3
               py-2
-              mx-1
-              bg-primary-light
+              my-1
+              lg:my-0
+              lg:mx-1
               rounded-lg
-              cursor-pointer
               focus:cursor-pointer
+               lg:px-3 lg:py-2
+               hover:bg-secondary-dark 
+               bg-primary-dark 
+               text-gray-200 
+               text-center 
+               cursor-pointer
             "
           >
             {{ page.name }}

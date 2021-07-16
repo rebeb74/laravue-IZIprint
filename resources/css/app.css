@@ -25,7 +25,8 @@
     transform: translateY(-50%);
 }
 
-.empty input:not(:focus) + label {
+.empty input:not(:focus) + label,
+.empty textarea:not(:focus) + label {
     top: 50%;
     transform: translateY(-50%);
 }
@@ -36,6 +37,17 @@
     border-width: 1px;
 }
 .input:focus {
+    @apply border-primary-dark;
+    outline: none;
+}
+
+.textarea:not(:focus) + label {
+    color: rgba(70, 70, 70, 1);
+}
+.textarea {
+    border-width: 1px;
+}
+.textarea:focus {
     @apply border-primary-dark;
     outline: none;
 }

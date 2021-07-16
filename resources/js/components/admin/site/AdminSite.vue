@@ -12,7 +12,7 @@ import AdminSiteGeneral from './AdminSiteGeneral.vue';
 export default {
   components: {
     AdminSiteOrder,
-    AdminSiteGeneral
+    AdminSiteGeneral,
   },
   setup() {
     
