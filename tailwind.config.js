@@ -84,6 +84,7 @@ module.exports = {
             72: '18rem',
             80: '20rem',
             96: '24rem',
+            400: '100rem',
         },
         animation: {
             none: 'none',
@@ -188,7 +189,8 @@ module.exports = {
             none: 'none',
             sidebar: '5px 0px 15px 0px #3F3F3D',
             toolbartop: '0px 10px 15px 0px #3F3F3D',
-            toolbarbot: '0px 10px 15px 0px #3F3F3D'
+            toolbarbot: '0px 10px 15px 0px #3F3F3D',
+            card: '0px -1px 5px 1px black'
         },
         caretColor: (theme) => theme('colors'),
         contrast: {
@@ -546,8 +548,10 @@ module.exports = {
             ...theme('spacing'),
             full: '100%',
             screen: '100vh',
+
         }),
         maxWidth: (theme, { breakpoints }) => ({
+            ...theme('spacing'),
             none: 'none',
             0: '0rem',
             xs: '20rem',
@@ -845,6 +849,11 @@ module.exports = {
             30: '30',
             40: '40',
             50: '50',
+            60: '60',
+            70: '70',
+            80: '80',
+            90: '90',
+            100: '100',
         },
     },
     variantOrder: [
@@ -898,7 +907,7 @@ module.exports = {
         borderOpacity: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
         borderRadius: ['responsive'],
         borderStyle: ['responsive'],
-        borderWidth: ['responsive'],
+        borderWidth: ['responsive', 'hover'],
         boxDecorationBreak: ['responsive'],
         boxShadow: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
         boxSizing: ['responsive'],

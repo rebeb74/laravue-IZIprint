@@ -15,12 +15,14 @@ class PagesIndexResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'key' => $this->key,
             'name' => $this->name,
             'title' => $this->title,
             'description' => $this->description,
             'order' => $this->order,
-            'image_upload_id' => $this->image_upload_id,
+            'blocks' => BlockResource::collection($this->blocks)
         ];
     }
+
 }

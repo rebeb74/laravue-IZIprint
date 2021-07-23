@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div
+    <button
       type="button"
-      :disabled="$store.state.isLoading"
-      :class="isDisabled"
-      @click.prevent
+      :disabled="buttonIsDisabled"
+      :class="buttonColor"
+      @click.prevent="$emit('button-click')"
       class="
         disabled:opacity-0
         px-2
@@ -12,7 +12,7 @@
         lg:px-3
         lg:py-2
         rounded
-        text-gray-200 text-center
+        text-center
         w-full
         flex
         justify-center
@@ -39,7 +39,7 @@
           ></path>
         </svg>
       </div>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -53,16 +53,38 @@ export default {
     color: {
       type: String,
     },
+    isDisabled: {
+      type: Boolean,
+    },
   },
   emits: ["button-click"],
+  data() {
+    return {
+      buttonIsDisabled: this.isDisabled,
+    };
+  },
   computed: {
-    isDisabled() {
-      return this.$store.state.isLoading
-        ? "bg-primary-light"
-        : this.color ? this.color + " hover:bg-secondary-dark cursor-pointer" : "bg-primary-dark hover:bg-secondary-dark cursor-pointer";
-    },
     isLoading() {
       return this.$store.state.isLoading;
+    },
+    buttonColor() {
+      return this.buttonIsDisabled
+        ? "bg-primary-light cursor-not-allowed text-primary"
+        : this.color
+        ? this.color + " hover:bg-secondary-dark cursor-pointer text-gray-200 "
+        : "bg-primary-dark hover:bg-secondary-dark cursor-pointer text-gray-200 ";
+    },
+  },
+  watch: {
+    isDisabled(isDisabled) {
+      isDisabled
+        ? (this.buttonIsDisabled = true)
+        : (this.buttonIsDisabled = false);
+    },
+    isLoading(isLoading) {
+      isLoading
+        ? (this.buttonIsDisabled = true)
+        : (this.buttonIsDisabled = false);
     },
   },
 };

@@ -32,7 +32,7 @@ class SiteController extends Controller
             }
         }
 
-        // // Save new Data
+        // Save new Data
         $data = [
             "title" => $request->title,
             "description" => $request->description,
@@ -42,7 +42,6 @@ class SiteController extends Controller
         Storage::disk('local')->put('seo.json', json_encode($data));
 
         return $data;
-        // return;
     }
 
     public function index(Request $request)

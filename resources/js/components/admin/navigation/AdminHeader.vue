@@ -9,7 +9,7 @@
       items-center
       fixed
       w-full
-      z-50
+      z-10
       shadow-xl
       text-gray-200
       flex-col
@@ -19,7 +19,7 @@
     <div
       class="w-full mb-2 mt-4 lg:my-0 lg:w-3/4 self-start flex lg:h-full justify-start items-center"
     >
-      <div
+      <div v-if="$store.state.sidenavIcon"
         @click="openSidebar()"
         class="text-3xl mx-4 lg:hidden cursor-pointer"
       >

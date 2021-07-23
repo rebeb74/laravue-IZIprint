@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ImageUploadResource;
 use App\Models\ImageUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -12,11 +13,17 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class ImagesUploadController extends Controller
 {
+    public function index()
+    {
+        return ImageUploadResource::collection(ImageUpload::all());
+    }
+
+
     public function store(Request $request)
     {
 
         $request->validate([
-            'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf|max:2048',
+            'file' => 'required|mimes:jpg,jpeg,png,pdf|max:2048',
             'name' => 'required',
             'alt_tag' => '',
             'title_tag' => ''
@@ -24,51 +31,42 @@ class ImagesUploadController extends Controller
 
         $imageUpload = new ImageUpload();
 
-        if ($request->file() && $request->name) {
-            $original_name = $request->file->getClientOriginalName();
-            $file_name = bin2hex(random_bytes(2)) . '_' . $request->name . '.' . $request->file->extension();
-            $thumb = Image::make($request->file('file'))->fit(300, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            $thumb_file_name = 'thumb_' . $file_name;
-            $request->file('file')->storeAs('image_uploads', $file_name, 'public');
-            $thumb->save(storage_path() . '/app/public/image_uploads/' . $thumb_file_name);
+        $original_name = $request->file->getClientOriginalName();
+        $file_name = bin2hex(random_bytes(2)) . '_' . $request->name . '.' . $request->file->extension();
+        $thumb = Image::make($request->file('file'))->fit(300, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $thumb_file_name = 'thumb_' . $file_name;
+        $request->file('file')->storeAs('image_uploads', $file_name, 'public');
+        $thumb->save(storage_path() . '/app/public/image_uploads/' . $thumb_file_name);
 
-            $file_id = Str::uuid();
-            $imageUpload->id = $file_id;
-            $imageUpload->name = $file_name;
-            $imageUpload->original_name = $original_name;
-            $imageUpload->alt_tag = $request->alt_tag;
-            $imageUpload->title_tag = $request->title_tag;
-            $imageUpload->url = env('APP_URL') . '/image_uploads/' . $file_name;
-            $imageUpload->thumb_url = env('APP_URL') . '/image_uploads/' . $thumb_file_name;
-            $imageUpload->save();
+        $file_id = Str::uuid();
+        $imageUpload->id = $file_id;
+        $imageUpload->name = $file_name;
+        $imageUpload->original_name = $original_name;
+        $imageUpload->alt_tag = $request->alt_tag;
+        $imageUpload->title_tag = $request->title_tag;
+        $imageUpload->url = env('APP_URL') . '/image_uploads/' . $file_name;
+        $imageUpload->thumb_url = env('APP_URL') . '/image_uploads/' . $thumb_file_name;
+        $imageUpload->save();
 
-            return response()->json([
-                'id' => $file_id,
-                'name' => $file_name,
-                'original_name' => $original_name,
-                'alt_tag' => $request->alt_tag,
-                'title_tag' => $request->title_tag,
-                'url' => env('APP_URL') . '/image_uploads/' . $file_name,
-                'thumb_url' => env('APP_URL') . '/image_uploads/' . $thumb_file_name
-            ]);
-        }
+        return new ImageUploadResource(ImageUpload::findOrFail($file_id));
     }
 
-    public function delete($id, Request $request) {
-            $imageToDelete = ImageUpload::find($id);
+    public function destroy($id, Request $request)
+    {
+        $imageToDelete = ImageUpload::find($id);
 
-            if ($imageToDelete) {
-                $imageToDelete->delete();
-                Storage::disk('public')->delete('image_uploads/' . $imageToDelete['name']);
-                Storage::disk('public')->delete('image_uploads/thumb_' . $imageToDelete['name']);
-            } else {
-                error_log('Image non trouvée');
-            }
+        if ($imageToDelete) {
+            $imageToDelete->delete();
+            Storage::disk('public')->delete('image_uploads/' . $imageToDelete['name']);
+            Storage::disk('public')->delete('image_uploads/thumb_' . $imageToDelete['name']);
+        } else {
+            error_log('Image non trouvée');
+        }
 
         return response()->json([
-            'message' => 'Image with id '.$id.' deleted'
+            'message' => 'Image with id ' . $id . ' deleted'
         ]);
     }
 }

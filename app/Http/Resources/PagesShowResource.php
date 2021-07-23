@@ -14,6 +14,14 @@ class PagesShowResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'key' => $this->key,
+            'name' => $this->name,
+            'title' => $this->title,
+            'description' => $this->description,
+            'order' => $this->order,
+            'blocks' => BlockResource::collection($this->blocks)
+        ];
     }
 }

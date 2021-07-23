@@ -1,6 +1,7 @@
-import axios from "axios";
-import { objectToArray } from "./shared/utils/objectToArray";
-import { sortPages } from "./shared/utils/sortPages";
+import { sortByOrder } from "./shared/utils/sortByOrder";
+import { getPages, updatePage } from "./shared/db/pagesService";
+import { getBlocks } from "./shared/db/blockService";
+import { getSiteData } from "./shared/db/siteDataService";
 
 export default {
     state() {
@@ -11,21 +12,32 @@ export default {
             siteData: {},
             isLoading: false,
             siteDataIsLoaded: false,
-            uploadedImage: null
+            uploadedImage: null,
+            sidenavIcon: false,
+            blocks: [],
+            blocksAreLoaded: false
         }
     },
     mutations: {
         setPagesAreLoaded(state) {
             state.pagesAreLoaded = true;
         },
+        setBlocksAreLoaded(state) {
+            state.blocksAreLoaded = true;
+        },
         setSiteDataIsLoaded(state) {
             state.siteDataIsLoaded = true;
         },
-        setSiteDataIsNotLoaded(state) {
-            state.siteDataIsLoaded = false;
-        },
         setPages(state, payload) {
-            state.pages = payload;
+            payload.forEach(page => {
+                if (page.blocks) {
+                    page.blocks.sort(sortByOrder);
+                }
+            });
+            state.pages = payload.sort(sortByOrder);
+        },
+        setBlocks(state, payload) {
+            state.blocks = payload;
         },
         toogleSidebar(state) {
             state.sidebarIsOpen = !state.sidebarIsOpen;
@@ -38,40 +50,72 @@ export default {
         },
         setUploadedImage(state, payload) {
             state.uploadedImage = payload;
+        },
+        showSidenavIcon(state) {
+            state.sidenavIcon = true;
+        },
+        hideSidenavIcon(state) {
+            state.sidenavIcon = false;
         }
 
     },
     actions: {
-        loadPages(context) {
-            axios.get('/api/pages')
+        loadBlocks (context) {
+            getBlocks()
                 .then(
                     result => {
-                        const pages = objectToArray(result.data).sort(sortPages);
-                        context.commit('setPages', pages);
+                        context.commit('setBlocks', result.data.data);
+                        context.commit('setBlocksAreLoaded');
+                    }
+                )
+        },
+        loadPages(context) {
+            getPages()
+                .then(
+                    result => {
+                        console.log(result.data.data)
+                        context.commit('setPages', result.data.data);
                         context.commit('setPagesAreLoaded');
                     })
                 .catch(
                     (error) => {
-                        console.error("error", error);
+                        console.error("load pages error", error);
                     })
         },
         loadSiteData(context) {
-            axios.get('/api/site')
+            getSiteData()
                 .then(
                     result => {
-                        context.commit('setSiteDataIsNotLoaded');
                         context.commit('setSiteData', result.data);
                         context.commit('setSiteDataIsLoaded');
                     })
                 .catch(
                     (error) => {
-                        console.error("error", error);
+                        console.error("load site data error", error);
                     })
-        }
+        },
+        updatePage(context, payload) {
+            context.commit('setIsLoading');
+            updatePage(payload)
+                .then(
+                result => {
+                    const pages = [...context.state.pages];
+                    const newPages = pages.filter(page => page.id !== result.data.id);
+                    newPages.push(result.data);
+                    context.commit('setPages', newPages);
+                    context.commit('setIsLoading');
+                    }
+                )
+                .catch(
+                    error => {
+                        console.log('update Page error', error);
+                    }
+                )
+        },
     },
     getters: {
-        getPages(state) {
-            return state.pages;
+        getPage:(state) => (key) => {
+            return state.pages.find(page => page.key === key);
         }
     }
 };

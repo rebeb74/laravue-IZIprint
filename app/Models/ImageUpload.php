@@ -13,9 +13,10 @@ class ImageUpload extends Model
         'url',
         'thumb_url'
     ]; 
-    public function Page()
+
+    public function block()
     {
-        return $this->belongsTo(Page::class);
+        return $this->belongsTo(Block::class);
     }
 
     public function getIncrementing()

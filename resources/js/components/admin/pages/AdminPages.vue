@@ -114,14 +114,14 @@
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="'/admin/pages/' + page.key + '/general'"
+              :to="'/admin/pages/' + page.key + '/blocks'"
             >
               Blocks
             </router-link>
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="'/admin/pages/' + page.key + '/general'"
+              :to="'/admin/pages/' + page.key + '/gallery'"
             >
               Gallerie d'images
             </router-link>
@@ -129,8 +129,9 @@
         </div>
       </div>
     </div>
-
-    <router-view class="h-full m-auto text-center flex-auto"></router-view>
+    <div class="mx-auto w-xs lg:w-5xl py-5 lg:px-5">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -187,6 +188,9 @@ export default {
         return "transition duration-500";
       }
     },
+  },
+  mounted() {
+    this.$store.commit("showSidenavIcon");
   },
 };
 </script>

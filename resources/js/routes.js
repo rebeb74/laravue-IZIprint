@@ -4,7 +4,6 @@ import AdminIndex from './components/admin/AdminIndex.vue';
 import AdminSite from './components/admin/site/AdminSite.vue';
 import AdminSiteGeneral from './components/admin/site/AdminSiteGeneral.vue';
 import AdminSiteOrder from './components/admin/site/AdminSiteOrder.vue';
-import AdminSiteSocials from './components/admin/site/AdminSiteSocials.vue';
 import AdminPages from './components/admin/pages/AdminPages.vue';
 import AdminPagesGeneral from './components/admin/pages/AdminPagesGeneral.vue';
 import AdminPagesBlocks from './components/admin/pages/AdminPagesBlocks.vue';
@@ -49,18 +48,13 @@ export default {
                             component: AdminSiteOrder,
                             name: 'order',
                         },
-                        {
-                            path: 'socials',
-                            component: AdminSiteSocials,
-                            name: 'socials',
-                        },
                     ]
                 },
                 {
                     path: 'pages',
                     component: AdminPages,
                     name: 'pages',
-                    redirect: '/admin/pages/accueil/general',
+                    redirect: '/admin/pages/home/general',
                     children: [
                         {
                             path: ':key/general',

@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    public function ImageUpload()
+
+    public function blocks()
     {
-        return $this->hasOne(ImageUpload::class);
+        return $this->hasMany(Block::class);
     }
 
     public function getIncrementing()

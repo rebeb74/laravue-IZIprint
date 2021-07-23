@@ -3,20 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PagesIndexResource;
+use App\Http\Resources\PagesShowResource;
 use App\Models\Page;
 use Illuminate\Http\Request;
+
 
 class PagesController extends Controller
 {
     public function index()
     {
-        $pages = Page::all()->sortBy('order');
-        return $pages;
+        return PagesIndexResource::collection(Page::all());
     }
 
     public function show($id)
     {
-        return Page::findOrFail($id);
+        return new PagesShowResource(Page::findOrFail($id));
     }
 
     public function update(Request $request, $id)
@@ -29,6 +31,6 @@ class PagesController extends Controller
         $page->order = $request->order;
         $page->save();
 
-        return Page::findOrFail($id);
+        return new PagesShowResource(Page::findOrFail($id));
     }
 }

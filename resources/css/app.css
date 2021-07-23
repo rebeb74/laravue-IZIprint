@@ -4,12 +4,13 @@
 
 /* */
 
+
 .active {
     @apply bg-primary;
 }
 
 .card {
-    @apply w-full rounded-lg bg-primary shadow-lg p-5 mb-5;
+    @apply w-full rounded-t-xl border-b border-gray-200 bg-primary shadow-card p-5 mb-5;
 }
 
 .card-title {
@@ -22,32 +23,35 @@
 
 .label {
     top: 0%;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
 }
 
 .empty input:not(:focus) + label,
-.empty textarea:not(:focus) + label {
+.empty textarea:not(:focus) + label,
+.empty select:not(:focus) + label {
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-35%);
 }
 .input:not(:focus) + label {
     color: rgba(70, 70, 70, 1);
 }
-.input {
-    border-width: 1px;
-}
-.input:focus {
+/* .input {
     @apply border-primary-dark;
+    border-width: 1px;
+} */
+.input:focus {
+    @apply border-gray-200;
     outline: none;
 }
 
 .textarea:not(:focus) + label {
     color: rgba(70, 70, 70, 1);
 }
-.textarea {
-    border-width: 1px;
-}
-.textarea:focus {
+/* .textarea {
     @apply border-primary-dark;
+    border-width: 1px;
+} */
+.textarea:focus {
+    @apply border-gray-200;
     outline: none;
 }

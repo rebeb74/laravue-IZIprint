@@ -1,7 +1,9 @@
 <template>
   <div class="card">
     <div class="card-title">Ordre des pages</div>
-    <div class="card-subtitle">Glissez et déposez les pages pour changer l'ordre</div>
+    <div class="card-subtitle">
+      Glissez et déposez les pages pour changer l'ordre
+    </div>
     <div>
       <draggable
         v-model="pages"
@@ -20,12 +22,12 @@
               lg:mx-1
               rounded-lg
               focus:cursor-pointer
-               lg:px-3 lg:py-2
-               hover:bg-secondary-dark 
-               bg-primary-dark 
-               text-gray-200 
-               text-center 
-               cursor-pointer
+              lg:px-3
+              lg:py-2
+              hover:bg-secondary-dark
+              bg-primary-dark
+              text-gray-200 text-center
+              cursor-pointer
             "
           >
             {{ page.name }}
@@ -58,11 +60,14 @@ export default {
       store.commit("setPages", orderedPages);
 
       orderedPages.forEach((page) => {
-        updatePage(page)
-          .then(() => {})
-          .catch((error) => {
-            console.log(error);
-          });
+        const currentPage = pages.value.find((p) => p.id === page.id);
+        if (page.order !== currentPage.order) {
+          updatePage(page)
+            .then(() => {})
+            .catch((error) => {
+              console.log(error);
+            });
+        }
       });
     };
 
