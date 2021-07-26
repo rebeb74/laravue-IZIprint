@@ -54,13 +54,13 @@
           :to="'/admin/site'"
           class="px-2 py-1 lg:px-3 lg:py-2 rounded hover:bg-secondary-dark mx-2"
         >
-          Réglages du site
+          Gestion du site
         </router-link>
         <router-link
           :to="'/admin/pages'"
           class="px-2 py-1 lg:px-3 lg:py-2 rounded hover:bg-secondary-dark mx-2"
         >
-          Réglages des pages
+          Gestion des pages
         </router-link>
       </div>
     </div>
@@ -70,13 +70,13 @@
         :to="'/admin/site'"
         class="bg-primary px-4 py-2 mx-2  rounded hover:bg-secondary-dark"
       >
-        Réglages Site
+        Gestion Site
       </router-link>
       <router-link
         :to="'/admin/pages'"
         class="bg-primary px-4 py-2 mx-2  rounded hover:bg-secondary-dark"
       >
-        Réglages Pages
+        Gestion Pages
       </router-link>
     </div>
 

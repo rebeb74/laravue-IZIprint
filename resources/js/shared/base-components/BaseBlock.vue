@@ -2,7 +2,8 @@
   <div
     class="
       flex flex-col
-      w-full
+      w-80
+      lg:w-full
       justify-start
       items-center
       overflow-hidden
@@ -26,17 +27,19 @@
       class="w-full flex justify-center items-center mb-4 cursor-pointer"
       @click="toggleBlock()"
     >
-      <div class="w-1/3 text-gray-200 flex justify-start items-center">
+      <div class="w-4/6 text-gray-200 flex flex-row justify-start items-center">
         <i class="fa fa-align-justify handle"></i>
-        <p class="uppercase px-4 py-2">
-          {{ oldTitle }}
-        </p>
-        <span v-if="edited" class="text-secondary-light">Modifié</span>
+        <div class="flex flex-col lg:flex-row justify-center items-center">
+          <p class="uppercase px-4">
+            {{ oldTitle }}
+          </p>
+          <span v-if="edited" class="text-secondary-light">Modifié</span>
+        </div>
       </div>
-      <div class="w-1/3 text-center" :class="isEnabledColor">
+      <div class="w-1/6 text-center" :class="isEnabledColor">
         {{ isEnabled }}
       </div>
-      <div class="w-1/3 flex justify-end items-center">
+      <div class="w-1/6 flex justify-end items-center">
         <div class="text-3xl text-gray-200 pt-3" :class="rotateArrow">
           <svg
             aria-hidden="true"
@@ -148,7 +151,7 @@
         >
         </base-button>
         <div
-          class="w-full flex justify-between items-start"
+          class="hidden lg:flex w-full flex-col lg:flex-row justify-between items-start"
           v-if="updatedBlock.image_upload"
         >
           <div class="text-gray-200 px-2 py-2">Position de l'image :</div>
@@ -170,6 +173,20 @@
           color="bg-secondary"
           @button-click="deleteImage()"
         ></base-button>
+      </div>
+    </div>
+    <div class="flex justify-center items-center flex-col lg:hidden">
+      <div class="text-gray-200 px-2 py-2">Position de l'image :</div>
+      <div class="flex justify-center items-center">
+        <div class="text-gray-200 px-4 py-2">Gauche</div>
+        <base-toggle
+          class=""
+          v-model="updatedBlock.image_on_right"
+          activeColor="bg-primary-light"
+          notActiveColor="bg-primary-light"
+          :width="10"
+        ></base-toggle>
+        <div class="text-gray-200 px-4 py-2">Droite</div>
       </div>
     </div>
     <div class="flex w-full">
@@ -206,10 +223,10 @@
 <script>
 import BaseInput from "./BaseInput.vue";
 import BaseTextArea from "./BaseTextArea.vue";
-import BaseButton from "./BaseButton.vue";
 import BaseSelect from "./BaseSelect.vue";
 import BaseToggle from "./BaseToggle.vue";
 import BlockPreview from "./BlockPreview.vue";
+import BaseButton from "./BaseButton.vue";
 import ModalImageImport from "../modals/ModalImageImport.vue";
 import {
   createImageUpload,
@@ -236,7 +253,7 @@ export default {
   data() {
     return {
       edited: false,
-      oldBlock: {...this.block},
+      oldBlock: { ...this.block },
       oldTitle: "",
       updatedBlock: null,
       isModalVisible: false,
@@ -274,7 +291,7 @@ export default {
       }
     },
     isImage() {
-      return this.updatedBlock.image ? "Changer l'image" : "Importer une image";
+      return this.updatedBlock.image_upload ? "Changer l'image" : "Importer une image";
     },
     isEnabled() {
       return this.updatedBlock.enabled ? "Activé" : "Désactivé";
@@ -295,7 +312,7 @@ export default {
     },
     blockIsOpenedHeight() {
       return this.blockIsOpened
-        ? "max-h-400 transition-max-height duration-500"
+        ? "max-h-800 transition-max-height duration-500"
         : "max-h-20  transition-max-height duration-500";
     },
   },
@@ -342,7 +359,6 @@ export default {
       if (this.uploadedImage) {
         deleteImageUploadById(this.uploadedImage.id)
           .then((result) => {
-            console.log(result);
             this.$store.commit("setUploadedImage", null);
           })
           .catch((error) => {
@@ -358,7 +374,6 @@ export default {
         .then((result) => {
           this.updatedBlock.image_upload = null;
           this.$store.commit("setUploadedImage", null);
-          console.log(result);
         })
         .catch((error) => {
           console.log(error);
@@ -366,22 +381,16 @@ export default {
     },
     saveBlock() {
       this.$store.commit("setIsLoading");
-      let savedBlock = {
-        ...this.updatedBlock,
-        page_id: this.currentPage.id,
-      };
+
       if (this.updatedBlock.image_upload) {
-        savedBlock = {
-          ...savedBlock,
-          image_upload_id: this.updatedBlock.image_upload.id,
-        };
+        this.updatedBlock.image_upload_id = this.updatedBlock.image_upload.id
         this.$store.commit("setUploadedImage", null);
       }
-      updateBlock(savedBlock)
+
+      updateBlock(this.updatedBlock)
         .then((result) => {
-          console.log(result);
-          this.oldBlock = {...result.data.data};
-          this.updatedBlock = result.data.data
+          this.oldBlock = { ...result.data.data };
+          this.updatedBlock = result.data.data;
         })
         .catch((error) => {
           console.log("create block error", error);
@@ -394,7 +403,6 @@ export default {
       this.$store.commit("setIsLoading");
       deleteBlockById(this.updatedBlock.id)
         .then((result) => {
-          console.log(result);
           this.$store.dispatch("loadPages");
         })
         .catch((error) => {

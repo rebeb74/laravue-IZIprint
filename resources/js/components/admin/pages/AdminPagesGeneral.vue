@@ -80,13 +80,6 @@ export default {
       this.$store.dispatch("updatePage", this.currentPage);
     },
   },
-  watch: {
-    currentPageKey() {
-      this.currentPage = {
-        ...this.$store.getters.getPage(this.currentPageKey),
-      };
-    },
-  },
   created() {
     this.name = this.currentPage.name;
     this.title = this.currentPage.title;

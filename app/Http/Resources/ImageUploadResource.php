@@ -22,7 +22,9 @@ class ImageUploadResource extends JsonResource
             'original_name' => $this->original_name,
             'url' => $this->url,
             'thumb_url' => $this->thumb_url,
-            'block_id' => $this->block_id
+            'block_id' => $this->block_id,
+            'page_id' => $this->page_id,
+            'created_at' => $this->created_at
         ];
     }
 }

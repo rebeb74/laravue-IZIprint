@@ -2,6 +2,7 @@ import { sortByOrder } from "./shared/utils/sortByOrder";
 import { getPages, updatePage } from "./shared/db/pagesService";
 import { getBlocks } from "./shared/db/blockService";
 import { getSiteData } from "./shared/db/siteDataService";
+import { sortByCreatedAt } from "./shared/utils/sortByCreatedAt";
 
 export default {
     state() {
@@ -32,6 +33,9 @@ export default {
             payload.forEach(page => {
                 if (page.blocks) {
                     page.blocks.sort(sortByOrder);
+                }
+                if (page.gallery) {
+                    page.gallery.sort(sortByCreatedAt);
                 }
             });
             state.pages = payload.sort(sortByOrder);

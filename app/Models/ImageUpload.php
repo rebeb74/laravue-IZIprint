@@ -19,6 +19,11 @@ class ImageUpload extends Model
         return $this->belongsTo(Block::class);
     }
 
+    public function page()
+    {
+        return $this->belongsTo((Page::class));
+    }
+
     public function getIncrementing()
     {
         return false;

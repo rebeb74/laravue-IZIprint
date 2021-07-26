@@ -57,7 +57,6 @@ export default {
           this.$router.push('/' + this.block.int_link);
       },
       hrefLink() {
-        //   window.open('https://www.linkedin.com/in/brandon-barber-79043593/', '_blank')
           window.open(this.block.ext_link, '_blank');
       }
   }

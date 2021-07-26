@@ -21,7 +21,8 @@ class PagesIndexResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'order' => $this->order,
-            'blocks' => BlockResource::collection($this->blocks)
+            'blocks' => BlockResource::collection($this->blocks),
+            'gallery' => ImageUploadResource::collection($this->gallery)
         ];
     }
 

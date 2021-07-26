@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BlocksController;
+use App\Http\Controllers\Api\GalleriesController;
 use App\Http\Controllers\Api\ImagesUploadController;
 use App\Http\Controllers\Api\PagesController;
 use App\Http\Controllers\Api\SiteController;
@@ -31,3 +32,5 @@ Route::get('/site', [SiteController::class, 'index'])->name('site.index');
 Route::post('/site', [SiteController::class, 'store'])->name('site.store');
 
 Route::resource('blocks', BlocksController::class)->only(['store', 'index', 'show', 'update', 'destroy']);
+
+Route::resource('galleries', GalleriesController::class)->only(['store', 'index', 'show', 'update', 'destroy']);

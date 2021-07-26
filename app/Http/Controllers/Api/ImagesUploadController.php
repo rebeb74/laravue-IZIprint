@@ -53,6 +53,16 @@ class ImagesUploadController extends Controller
         return new ImageUploadResource(ImageUpload::findOrFail($file_id));
     }
 
+    public function update($id, Request $request) {
+        $imageToEdit = ImageUpload::find($id);
+
+        $imageToEdit->alt_tag = $request->alt_tag;
+        $imageToEdit->title_tag = $request->title_tag;
+        $imageToEdit->save();
+
+        return new ImageUploadResource(ImageUpload::findOrFail($id));
+    }
+
     public function destroy($id, Request $request)
     {
         $imageToDelete = ImageUpload::find($id);

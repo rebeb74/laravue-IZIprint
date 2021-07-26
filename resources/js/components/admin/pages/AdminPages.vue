@@ -54,7 +54,7 @@
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="'/admin/pages/' + page.key + '/general'"
+              :to="'/admin/pages/' + page.key + '/blocks'"
               @click="closeSidebar()"
             >
               Blocks
@@ -62,7 +62,7 @@
             <router-link
               :class="subMenuItem"
               class="hover:bg-primary-light px-6"
-              :to="'/admin/pages/' + page.key + '/general'"
+              :to="'/admin/pages/' + page.key + '/gallery'"
               @click="closeSidebar()"
             >
               Gallerie d'images

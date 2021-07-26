@@ -13,6 +13,16 @@ class BlockResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
+
+    private function imageUploadId()
+    {
+        if ($this->imageUpload) {
+            return $this->imageUpload->id;
+        } else {
+            return null;
+        }
+    }
+
     public function toArray($request)
     {
         return [
@@ -28,6 +38,8 @@ class BlockResource extends JsonResource
             'image_upload' => new ImageUploadResource($this->imageUpload),
             'image_on_right' => $this->image_on_right,
             'enabled' => $this->enabled,
+            'page_id' => $this->page->id,
+            'image_upload_id' => $this->imageUploadId()
         ];
     }
 }

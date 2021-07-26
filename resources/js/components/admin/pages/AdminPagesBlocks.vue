@@ -174,13 +174,6 @@ export default {
         });
     },
   },
-  // watch: {
-  //   currentPageKey() {
-  //     this.currentPage = {
-  //       ...this.$store.getters.getPage(this.currentPageKey),
-  //     };
-  //   },
-  // },
   created() {},
 };
 </script>

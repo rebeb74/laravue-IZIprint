@@ -13,6 +13,11 @@ class Page extends Model
         return $this->hasMany(Block::class);
     }
 
+    public function gallery()
+    {
+        return $this->hasMany(ImageUpload::class);
+    }
+
     public function getIncrementing()
     {
         return false;

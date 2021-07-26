@@ -20,7 +20,11 @@
       "
     >
       <span v-if="!isLoading">
+        <i v-if="icon === 'edit'" class='far fa-edit ml-1'></i>
+        <i v-if="icon === 'delete'" class="far fa-trash-alt"></i>
+        <div>
         {{ text }}
+        </div>
       </span>
       <div v-else class="w-8 animate-spin">
         <svg
@@ -47,7 +51,6 @@
 export default {
   props: {
     text: {
-      required: true,
       type: String,
     },
     color: {
@@ -56,6 +59,9 @@ export default {
     isDisabled: {
       type: Boolean,
     },
+    icon: {
+      type: String
+    }
   },
   emits: ["button-click"],
   data() {

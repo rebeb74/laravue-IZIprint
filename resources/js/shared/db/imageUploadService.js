@@ -12,8 +12,8 @@ export const getImageUploadById = (id) =>  {
     return axios.get('/api/upload/' + id);
 }
 
-export const updateImageUpload = (imageUpload, options) =>  {
-    return axios.put('/api/upload/' + imageUpload.id, imageUpload, options);
+export const updateImageUpload = (imageUpload) =>  {
+    return axios.put('/api/upload/' + imageUpload.id, imageUpload);
 }
 
 export const deleteImageUploadById = (id) =>  {
