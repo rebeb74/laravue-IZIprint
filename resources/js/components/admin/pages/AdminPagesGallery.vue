@@ -46,7 +46,7 @@
         <div
           class="
             w-72
-            h-80
+            h-96
             rounded-xl
             bg-primary-light
             flex
@@ -61,7 +61,10 @@
               :src="image.thumb_url"
               :alt="image.alt_tag"
           /></a>
-          <div class="flex justify-center items-center py-1">
+          <div class="text-gray-200 italic py-2 break-words w-full px-4 text-center h-14 text-sm">
+            {{ image.name }}
+          </div>
+          <div class="flex justify-center items-center">
             <base-button
               type="button"
               icon="edit"

@@ -25068,10 +25068,13 @@ var _hoisted_5 = {
   "class": "flex flex-col lg:flex-row justify-start items-center flex-wrap"
 };
 var _hoisted_6 = {
-  "class": "\n            w-72\n            h-80\n            rounded-xl\n            bg-primary-light\n            flex\n            justify-center\n            items-center\n            flex-col\n          "
+  "class": "\n            w-72\n            h-96\n            rounded-xl\n            bg-primary-light\n            flex\n            justify-center\n            items-center\n            flex-col\n          "
 };
 var _hoisted_7 = {
-  "class": "flex justify-center items-center py-1"
+  "class": "text-gray-200 italic py-2 break-words w-full px-4 text-center h-14 text-sm"
+};
+var _hoisted_8 = {
+  "class": "flex justify-center items-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_modal_image_import = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal-image-import");
@@ -25126,7 +25129,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* PROPS */
     , ["src", "alt"])], 8
     /* PROPS */
-    , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
+    , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(image.name), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_base_button, {
       type: "button",
       icon: "edit",
       onButtonClick: function onButtonClick($event) {
