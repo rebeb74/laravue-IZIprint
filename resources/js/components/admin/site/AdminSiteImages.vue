@@ -59,7 +59,7 @@
               :src="image.thumb_url"
               :alt="image.alt_tag"
           /></a>
-          <div v-if="image.block_id || image.page_id" class="text-gray-200 italic py-3">
+          <div v-if="image.block_id || image.page_id || image.id === siteData.social_image.id" class="text-gray-200 italic py-3">
             {{ useCase(image) }}
           </div>
           <div v-else class="text-secondary-light italic py-3">
@@ -99,6 +99,7 @@ import {
   deleteImageUploadById,
   updateImageUpload,
 } from "../../../shared/db/imageUploadService";
+import { sortByCreatedAt } from "../../../shared/utils/sortByCreatedAt";
 
 export default {
   components: {
@@ -112,9 +113,13 @@ export default {
       isModalVisible: false,
       isEditModalVisible: false,
       isEditingImage: "",
+      counter: 0
     };
   },
   computed: {
+    siteData() {
+      return this.$store.state.siteData;
+    },
     currentPageKey() {
       return this.$route.params.key;
     },
@@ -131,6 +136,8 @@ export default {
         ? "Utilisée dans un bloc"
         : image.page_id
         ? "Utilisée dans une gallerie de page"
+        : image.id === this.siteData.social_image.id
+        ? "Image pour les réseaux sociaux"
         : null;
     },
     showModalEdit(image) {
@@ -196,7 +203,8 @@ export default {
   },
   created() {
     getImageUploads().then((result) => {
-      this.images = result.data.data;
+      this.images = result.data.data.sort(sortByCreatedAt);
+      console.log(this.images)
     });
   },
 };

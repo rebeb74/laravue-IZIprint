@@ -7,7 +7,7 @@
       {{ block.subtitle }}
     </div>
     <div class="">
-      <div class="text-gray-200 pb-4">
+      <div class="text-gray-200 pb-4 content-none clear-both table">
         <div v-if="block.image_upload" :class="isImageOnRight">
           <a :href="block.image_upload.url" target="_blank"
             ><img
@@ -50,7 +50,7 @@ export default {
   computed: {
       isImageOnRight() {
           return this.block.image_on_right ? "float-right max-w-72 pl-4 pt-2" : "float-left max-w-72 pr-4 pt-2";
-      }
+      },
   },
   methods: {
       routerLink() {

@@ -1,102 +1,19 @@
 <template>
-  <div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
-    </div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
-    </div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
-    </div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
-    </div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
-    </div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
-    </div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
-    </div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
-    </div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
-    </div>
-    <div class="w-1/2 bg-white rounded-lg shadow-lg mx-auto p-4">
-      <h1 class="text-2xl text-gray-700 text-center mb-4">Home component</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, expedita?
-        Officiis autem, omnis hic similique facere tempora culpa animi quisquam
-        commodi illum sapiente error fugiat? Nobis, architecto? Sapiente,
-        laborum sint!
-      </p>
+  <div class="m-auto w-xs lg:w-5xl py-5 lg:px-5">
+    <div v-for="block in currentPage.blocks" :key="block.id" class="">
+      <block-preview :block="block"></block-preview>
     </div>
   </div>
 </template>
 
 <script>
 import getCurrentPage from "../../shared/utils/getCurrentPage";
+import BlockPreview from "../../shared/base-components/BlockPreview.vue";
 
 export default {
+  components: {
+    BlockPreview,
+  },
   data() {
     return {
       currentPage: getCurrentPage(),
