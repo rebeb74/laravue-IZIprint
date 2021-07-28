@@ -1,4 +1,10 @@
 /*!
+  * vue-draggable-next v2.0.0
+  * (c) 2021 Anish George
+  * @license MIT
+  */
+
+/*!
   * vue-router v4.0.10
   * (c) 2021 Eduardo San Martin Morote
   * @license MIT
@@ -12,5 +18,12 @@
 /*!
  * vuex v4.0.2
  * (c) 2021 Evan You
+ * @license MIT
+ */
+
+/**!
+ * Sortable 1.13.0
+ * @author	RubaXa   <trash@rubaxa.org>
+ * @author	owenm    <owen23355@gmail.com>
  * @license MIT
  */

@@ -37,8 +37,8 @@ class ImagesUploadController extends Controller
             $constraint->aspectRatio();
         });
         $thumb_file_name = 'thumb_' . $file_name;
-        $request->file('file')->storeAs('image_uploads', $file_name, 'public');
-        $thumb->save(storage_path() . '/app/public/image_uploads/' . $thumb_file_name);
+        $request->file('file')->storeAs('image_uploads', $file_name, 'image_uploads');
+        $thumb->save(public_path() . '/image_uploads/' . $thumb_file_name);
 
         $file_id = Str::uuid();
         $imageUpload->id = $file_id;

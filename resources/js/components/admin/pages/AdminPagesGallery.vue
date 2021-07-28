@@ -61,7 +61,19 @@
               :src="image.thumb_url"
               :alt="image.alt_tag"
           /></a>
-          <div class="text-gray-200 italic py-2 break-words w-full px-4 text-center h-14 text-sm">
+          <div
+            class="
+              text-gray-200
+              italic
+              py-2
+              break-words
+              w-full
+              px-4
+              text-center
+              h-14
+              text-sm
+            "
+          >
             {{ image.name }}
           </div>
           <div class="flex justify-center items-center">
@@ -188,11 +200,17 @@ export default {
     },
   },
   watch: {
-    currentPageKey() {
-      this.gallery = this.currentPage.gallery;
+    currentPageKey(val) {
+      console.log(val);
+      if (val) {
+        this.gallery = this.currentPage.gallery;
+      }
     },
-    currentPage() {
-      this.gallery = this.currentPage.gallery;
+    currentPage(val) {
+      console.log(val);
+      if (val) {
+        this.gallery = this.currentPage.gallery;
+      }
     },
   },
   created() {

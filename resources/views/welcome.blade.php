@@ -27,7 +27,7 @@
     </head>
     <body class="h-full bg-primary-light m-0">
         <div id="app" class="h-full m-0">
-            <home class="h-full m-0"/>
+            <app class="h-full m-0"/>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

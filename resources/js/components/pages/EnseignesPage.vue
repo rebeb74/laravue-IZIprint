@@ -1,17 +1,22 @@
 <template>
-    <div>
-        
-    </div>
+  <div></div>
 </template>
 
 <script>
-import setPageTags from '../../shared/utils/setPageTags';
-import getCurrentPage from '../../shared/utils/getCurrentPage';
+import getCurrentPage from "../../shared/utils/getCurrentPage";
 
 export default {
-  setup() {
-    const currentPage = getCurrentPage();
-    setPageTags(currentPage);
+  data() {
+    return {
+      currentPage: getCurrentPage(),
+    };
+  },
+  created() {
+    document
+      .querySelector('meta[name="description"]')
+      .setAttribute("content", this.currentPage.description);
+    document.title =
+      this.currentPage.title + " " + this.$store.state.siteData.suffix;
   },
 };
 </script>

@@ -1,10 +1,10 @@
 <template>
-  <metainfo>
+  <!-- <metainfo>
     <template v-slot:title="{ content }">{{
       content ? `${content} | IZIprint` : `IZIprint`
     }}</template>
-  </metainfo>
-  <router-view v-if="store.state.pagesAreLoaded"></router-view>
+  </metainfo> -->
+  <router-view v-if="$store.state.pagesAreLoaded && $store.state.siteDataIsLoaded"></router-view>
 </template>
 
 <script>
@@ -18,19 +18,19 @@ export default {
       const store = useStore();
       
       const myTitle = store.state.title;
-    useMeta({
-      title: 'myTitle',
-      htmlAttrs: { lang: "fr", amp: true },
-      // meta: [
-      //   { test: "test" },
-      //   { name: "viewport", content: "width=device-width, initial-scale=1" },
-      //   {
-      //     property: "og:title",
-      //     content: "Test title",
-      //     vmid: "og:title",
-      //   },
-      // ],
-    });
+    // useMeta({
+    //   title: 'myTitle',
+    //   htmlAttrs: { lang: "fr", amp: true },
+    //   // meta: [
+    //   //   { test: "test" },
+    //   //   { name: "viewport", content: "width=device-width, initial-scale=1" },
+    //   //   {
+    //   //     property: "og:title",
+    //   //     content: "Test title",
+    //   //     vmid: "og:title",
+    //   //   },
+    //   // ],
+    // });
 
     return { store }
   },
