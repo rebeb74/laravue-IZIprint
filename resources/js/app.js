@@ -5,6 +5,7 @@ import App from "./App.vue";
 import routes from './routes';
 import store from './store';
 
+
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 
