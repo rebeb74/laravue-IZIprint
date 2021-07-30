@@ -204,7 +204,6 @@ export default {
   created() {
     getImageUploads().then((result) => {
       this.images = result.data.data.sort(sortByCreatedAt);
-      console.log(this.images)
     });
   },
 };

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +16,15 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
+Auth::routes();
+
+Route::middleware('auth')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
 Route::get('/{any?}', function () {
     $seo = Storage::disk('local')->get('seo.json');
     return view('welcome')->with('seo', json_decode($seo, true));
 })->where('any', '^(?!api\/)[\/\w\.-]*');
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -3,23 +3,16 @@
     <div v-for="block in currentPage.blocks" :key="block.id" class="">
       <block-preview :block="block"></block-preview>
     </div>
+    <div v-if="currentPage.gallery.length > 0">
+      <image-gallery :images="currentPage.gallery"></image-gallery>
+    </div>
   </div>
 </template>
+
 <script>
-import getCurrentPage from "../../shared/utils/getCurrentPage";
+import indexMixin from './mixins/indexMixin.js';
 
 export default {
-  data() {
-    return {
-      currentPage: getCurrentPage(),
-    };
-  },
-  created() {
-    document
-      .querySelector('meta[name="description"]')
-      .setAttribute("content", this.currentPage.description);
-    document.title =
-      this.currentPage.title + " " + this.$store.state.siteData.suffix;
-  },
-};
+  mixins: [indexMixin]
+}
 </script>

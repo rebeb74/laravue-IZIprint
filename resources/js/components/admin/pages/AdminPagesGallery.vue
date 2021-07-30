@@ -201,13 +201,11 @@ export default {
   },
   watch: {
     currentPageKey(val) {
-      console.log(val);
       if (val) {
         this.gallery = this.currentPage.gallery;
       }
     },
     currentPage(val) {
-      console.log(val);
       if (val) {
         this.gallery = this.currentPage.gallery;
       }

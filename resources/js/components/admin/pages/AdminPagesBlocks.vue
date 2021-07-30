@@ -167,7 +167,6 @@ export default {
       })
         .then((result) => {
           this.$store.dispatch("loadPages");
-          console.log("create block result", result);
         })
         .catch((error) => {
           console.log("create block error", error);

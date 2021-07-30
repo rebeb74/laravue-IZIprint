@@ -19,6 +19,8 @@
         <meta name="twitter:description" content="{{ $seo['description'] }}" />
         <meta name="twitter:image" content="{{ $seo['social_image']['thumb_url'] }}" />
 
+        <link rel="icon" type="image/png" href="{{ asset('images/logo-light.png') }}" />
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 

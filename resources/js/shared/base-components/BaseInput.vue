@@ -2,7 +2,7 @@
   <div class="py-4 border-transparent hover:border-gray-200 border-b-2">
     <div class="relative h-10 input-component" :class="empty">
       <input
-        type="text"
+        :type="type || 'text'"
         :name="name"
         :id="name + randomString"
         class="
@@ -62,6 +62,9 @@ export default {
       type: Boolean,
     },
     modelValue: {
+      type: String
+    },
+    type: {
       type: String
     }
   },

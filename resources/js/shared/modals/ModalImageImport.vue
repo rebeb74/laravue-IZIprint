@@ -102,7 +102,6 @@ export default {
     },
     selectFile(event) {
       if (event.target.files.length > 0) {
-        console.log(event.target.files.length > 0);
         this.selectedFile = event.target.files;
         this.name = this.selectedFile[0].name.split(".").shift();
       }

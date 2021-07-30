@@ -21,16 +21,23 @@ import ContactPage from './components/pages/ContactPage.vue';
 import DevisPage from './components/pages/DevisPage.vue';
 
 import The404Page from './components/The404Page.vue';
+import TheLogin from './components/TheLogin.vue';
 
-export default {
+const router =  {
     history: createWebHistory(),
     linkExactActiveClass: 'active',
     routes: [
+        {
+            path: '/auth/login',
+            component: TheLogin,
+            name: 'login',
+        },
         {
             path: '/admin',
             component: AdminIndex,
             name: 'admin',
             redirect: '/admin/site',
+            meta: { isAuth: true },
             children: [
                 {
                     path: 'site',
@@ -78,7 +85,7 @@ export default {
         {
             path: '/',
             component: IndexPage,
-            name:'',
+            name:'index',
             redirect: '/home',
             children: [
                 {
@@ -134,4 +141,9 @@ export default {
             name: '404',
         },
     ]
+
 }
+
+
+
+export default router;

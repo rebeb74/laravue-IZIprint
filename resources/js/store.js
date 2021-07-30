@@ -3,6 +3,8 @@ import { getPages, updatePage } from "./shared/db/pagesService";
 import { getBlocks } from "./shared/db/blockService";
 import { getSiteData } from "./shared/db/siteDataService";
 import { sortByCreatedAt } from "./shared/utils/sortByCreatedAt";
+import { isAuth, logout } from "./shared/utils/auth";
+import axios from "axios";
 
 export default {
     state() {
@@ -16,7 +18,10 @@ export default {
             uploadedImage: null,
             sidenavIcon: false,
             blocks: [],
-            blocksAreLoaded: false
+            blocksAreLoaded: false,
+            user: {},
+            isAuth: false
+
         }
     },
     mutations: {
@@ -60,6 +65,12 @@ export default {
         },
         hideSidenavIcon(state) {
             state.sidenavIcon = false;
+        },
+        setUser(state, payload) {
+            state.user = payload;
+        },
+        setIsAuth(state, payload) {
+            state.isAuth = payload;
         }
 
     },
@@ -116,10 +127,29 @@ export default {
                     }
                 )
         },
+        async loadUser(context) {
+            if(isAuth()) {
+                try {
+                    const user = (await axios.get('/user')).data;
+                    context.commit('setUser', user);
+                    context.commit('setIsAuth', true);
+                } catch (error) {
+                    context.dispatch('logout');
+                }
+            }
+        },
+        logout(context) {
+            context.commit('setUser', {});
+            context.commit('setIsAuth', false);
+            logout();
+        }
     },
     getters: {
         getPage:(state) => (key) => {
             return state.pages.find(page => page.key === key);
+        },
+        isAuth: (state) => {
+            return state.isAuth;
         }
     }
 };

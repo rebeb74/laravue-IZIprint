@@ -85,5 +85,11 @@ export default {
     this.title = this.currentPage.title;
     this.description = this.currentPage.description;
   },
+  beforeRouteUpdate(to, _, next) {
+    this.name = this.$store.getters.getPage(to.params.key).name;
+    this.title = this.$store.getters.getPage(to.params.key).title;
+    this.description = this.$store.getters.getPage(to.params.key).description;
+    next();
+  }
 };
 </script>

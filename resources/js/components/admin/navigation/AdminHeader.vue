@@ -17,7 +17,7 @@
     "
   >
     <div
-      class="w-full mb-2 mt-4 lg:my-0 lg:w-3/4 self-start flex lg:h-full justify-start items-center"
+      class="w-full mb-2 mt-4 lg:my-0 lg:w-3/5 self-start flex lg:h-full justify-start items-center"
     >
       <div v-if="$store.state.sidenavIcon"
         @click="openSidebar()"
@@ -80,10 +80,16 @@
       </router-link>
     </div>
 
-    <div class="hidden w-1/4 self-end lg:flex justify-end items-center h-full">
+    <div class="hidden w-2/5 self-end lg:flex justify-end items-center h-full">
+      <router-link
+        :to="'/'"
+        class="px-2 py-1 lg:px-3 lg:py-2 rounded hover:bg-secondary-dark mx-2 cursor-pointer"
+      >
+        Retour au site
+      </router-link>
       <div
-        :to="'/admin/site'"
-        class="px-2 py-1 lg:px-3 lg:py-2 rounded hover:bg-secondary-dark mx-2"
+        class="px-2 py-1 lg:px-3 lg:py-2 rounded hover:bg-secondary-dark mx-2 cursor-pointer"
+        @click="logout()"
       >
         Se déconnecter de l'admin
       </div>
@@ -92,14 +98,30 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { mapState } from 'vuex';
 export default {
   data() {
     return {};
+  },
+  computed: {
+    ...mapState({
+      isAuth: 'isAuth'
+    })
   },
   methods: {
     openSidebar() {
       this.$store.commit("toogleSidebar");
     },
+    async logout() {
+      try {
+        await axios.post('/logout');
+        this.$store.dispatch('logout');
+        this.$router.replace('/home');
+      } catch (error) {
+        this.$store.dispatch('logout');
+      }
+    }
   },
   computed: {},
   created() {},
