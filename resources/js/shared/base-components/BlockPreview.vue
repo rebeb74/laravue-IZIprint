@@ -1,17 +1,17 @@
 <template>
-  <div class="card">
-    <div class="card-title">
+  <div class="py-8">
+    <h2 class="text-secondary-light uppercase text-xl font-bold" :class="isTitleOnRight">
       {{ block.title }}
-    </div>
-    <div class="card-subtitle pb-2">
+    </h2>
+    <h3 class="italic font-light pb-2">
       {{ block.subtitle }}
-    </div>
+    </h3>
     <div class="">
-      <div class="text-gray-200 pb-4 content-none clear-both table">
+      <div class="text-gray-200 pb-4 content-none clear-both table text-justify">
         <div v-if="block.image_upload" :class="isImageOnRight">
           <a :href="block.image_upload.url" target="_blank"
             ><img
-              :src="block.image_upload.url"
+              :src="block.image_upload.thumb_url"
               :alt="block.image_upload.alt_tag"
           /></a>
         </div>
@@ -49,8 +49,12 @@ export default {
   },
   computed: {
       isImageOnRight() {
-          return this.block.image_on_right ? "float-right max-w-72 pl-4 pt-2" : "float-left max-w-72 pr-4 pt-2";
+          return this.block.image_on_right ? "float-right max-w-72 pl-6 py-2" : "float-left max-w-72 pr-6 py-2";
       },
+      isTitleOnRight() {
+          return this.block.image_on_right ? "" : "text-right";
+      },
+
   },
   methods: {
       routerLink() {

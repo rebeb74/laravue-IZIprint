@@ -7,7 +7,7 @@
       justify-start
       items-center
       overflow-hidden
-      bg-primary
+      bg-primary-dark
       p-5
     "
     :class="[blockIsOpenedHeight, positionClass]"

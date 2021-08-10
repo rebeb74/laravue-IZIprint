@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BlocksController;
+use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\GalleriesController;
 use App\Http\Controllers\Api\ImagesUploadController;
 use App\Http\Controllers\Api\PagesController;
@@ -30,4 +31,7 @@ Route::get('/site', [SiteController::class, 'index'])->name('site.index');
 Route::post('/site', [SiteController::class, 'store'])->name('site.store');
 
 Route::resource('blocks', BlocksController::class)->only(['store', 'index', 'show', 'update', 'destroy']);
+
+Route::post('contact', [ContactController::class, 'sendMail']);
+
 

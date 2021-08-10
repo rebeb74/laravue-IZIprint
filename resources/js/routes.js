@@ -128,11 +128,11 @@ const router =  {
                     component: ContactPage,
                     name: 'contact',
                 },
-                {
-                    path: 'devis',
-                    component: DevisPage,
-                    name: 'devis',
-                },
+                // {
+                //     path: 'devis',
+                //     component: DevisPage,
+                //     name: 'devis',
+                // },
             ]
         },
         {

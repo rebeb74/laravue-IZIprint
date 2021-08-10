@@ -66,13 +66,13 @@ class AddPagesToPagesTable extends Migration
                     'description' => 'Description A propos. Ceci est une très longue description pour le référencement de google.',
                     'order' => 7,
                 ],
-                [
-                    'key' => 'devis',
-                    'name' => 'Devis',
-                    'title' => 'TITRE Devis',
-                    'description' => 'Description Devis. Ceci est une très longue description pour le référencement de google.',
-                    'order' => 8,
-                ],
+                // [
+                //     'key' => 'devis',
+                //     'name' => 'Devis',
+                //     'title' => 'TITRE Devis',
+                //     'description' => 'Description Devis. Ceci est une très longue description pour le référencement de google.',
+                //     'order' => 8,
+                // ],
                 [
                     'key' => 'contact',
                     'name' => 'Contact',

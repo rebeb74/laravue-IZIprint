@@ -8,7 +8,7 @@
     ></div>
     <div
       :class="sidebarIsOpen"
-      class="lg:hidden h-full w-72 bg-primary fixed z-50 overflow-scroll pb-40"
+      class="lg:hidden h-full w-72 bg-primary-dark fixed z-50 overflow-scroll pb-40"
       ref="sidebar"
     >
       <div
@@ -73,7 +73,7 @@
     </div>
 
     <!-- LARGE SCREEN -->
-    <div class="hidden lg:block w-72 h-full bg-primary z-0 pb-10 pt-6">
+    <div class="hidden lg:block w-72 h-full bg-primary-dark z-0 pb-10 pt-6">
       <div
         :class="menuItem"
         @click="closeSidebar()"

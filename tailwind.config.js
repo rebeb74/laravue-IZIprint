@@ -20,6 +20,7 @@ module.exports = {
             primary: {
                 light: '#61615f',
                 DEFAULT: '#3f3f3d',
+                gray: '#363634',
                 dark: '#1d1d1b',
             },
             secondary: {
@@ -85,7 +86,8 @@ module.exports = {
             80: '20rem',
             96: '24rem',
             400: '100rem',
-            800: '200rem'
+            800: '200rem',
+            1200: '300rem'
         },
         animation: {
             none: 'none',

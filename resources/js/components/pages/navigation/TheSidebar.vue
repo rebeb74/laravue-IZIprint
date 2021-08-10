@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="$store.state.sidebarIsOpen"
-    class="h-full w-full z-50 bg-primary bg-opacity-30 fixed"
+    class="h-full w-full z-50 bg-primary-dark bg-opacity-30 fixed"
     @click="closeSidebar()"
   ></div>
   <div

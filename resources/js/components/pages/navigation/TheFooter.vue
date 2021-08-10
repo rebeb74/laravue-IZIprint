@@ -4,11 +4,11 @@
 			h-96
       lg:h-52
       bg-primary-dark
-      mt-10
       flex flex-col
       justify-center
       items-center
       text-gray-200
+      z-10
     "
   >
     <div class="flex flex-col lg:flex-row justify-center items-center">

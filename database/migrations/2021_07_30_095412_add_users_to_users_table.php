@@ -20,7 +20,7 @@ class AddUsersToUsersTable extends Migration
                 [
                     'name' => 'admin',
                     'email' => 'info@iziprint.re',
-                    'password' => '',
+                    'password' => 'adminizi974',
                 ],
             );
             foreach ($data as $datum){

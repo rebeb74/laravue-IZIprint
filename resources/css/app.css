@@ -10,7 +10,7 @@
 }
 
 .card {
-    @apply w-full rounded-t-xl border-b border-gray-200 bg-primary shadow-card p-5 mb-5;
+    @apply w-full rounded-t-xl border-b border-gray-200 bg-primary-dark shadow-card p-5 mb-5;
 }
 
 .card-title {

@@ -8,7 +8,7 @@
       items-center
       fixed
       w-full
-      z-10
+      z-20
       shadow-xl
     "
   >

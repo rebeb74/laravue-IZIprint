@@ -1,5 +1,5 @@
 <template>
-  <div class="card relative z-0">
+  <div class="relative z-0 w-full">
     <teleport to="body">
       <images-preview v-if="imagePreview" :image="imagePreview" :images="images" @close="closePreview()"></images-preview>
     </teleport>

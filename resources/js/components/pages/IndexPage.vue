@@ -1,7 +1,7 @@
 <template>
   <the-sidebar></the-sidebar>
   <the-header></the-header>
-  <main class="pt-20 flex flex-col h-full m-0">
+  <main class="flex flex-col h-full m-0">
     <router-view class="flex-content"></router-view>
     <the-footer class="flex-shrink-0"></the-footer>
   </main>

@@ -37,8 +37,12 @@ class ImagesUploadController extends Controller
             $constraint->aspectRatio();
         });
         $thumb_file_name = 'thumb_' . $file_name;
-        $request->file('file')->storeAs('image_uploads', $file_name, 'image_uploads');
-        $thumb->save(public_path() . '/image_uploads/' . $thumb_file_name);
+        $request->file('file')->storeAs('uploads', $file_name, 'image_uploads');
+        $thumb->save(public_path() . '/uploads/' . $thumb_file_name);
+        // $request->file('file')->storeAs('image_uploads', $file_name, 'image_uploads');
+        // $thumb->save(public_path() . '/image_uploads/' . $thumb_file_name);
+        // $request->file('file')->storeAs('/image_uploads', $file_name, 'public');
+        // $thumb->save(storage_path() . '/app/public/image_uploads/' . $thumb_file_name);
 
         $file_id = Str::uuid();
         $imageUpload->id = $file_id;
@@ -46,8 +50,8 @@ class ImagesUploadController extends Controller
         $imageUpload->original_name = $original_name;
         $imageUpload->alt_tag = $request->alt_tag;
         $imageUpload->title_tag = $request->title_tag;
-        $imageUpload->url = env('APP_URL') . '/image_uploads/' . $file_name;
-        $imageUpload->thumb_url = env('APP_URL') . '/image_uploads/' . $thumb_file_name;
+        $imageUpload->url = env('APP_URL') . '/uploads/' . $file_name;
+        $imageUpload->thumb_url = env('APP_URL') . '/uploads/' . $thumb_file_name;
         $imageUpload->save();
 
         return new ImageUploadResource(ImageUpload::findOrFail($file_id));

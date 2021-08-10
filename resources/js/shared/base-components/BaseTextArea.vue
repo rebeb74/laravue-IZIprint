@@ -23,6 +23,7 @@
         v-model="modelValue"
         :rows="rows"
         :maxlength="maxlength"
+        @blur="$emit('blur')"
       ></textarea>
       <label
         :for="name + randomString"
@@ -32,7 +33,7 @@
         {{ label }}
       </label>
     </div>
-    <p v-if="inputIsInvalid" class="mt-2 ml-4 text-secondary-light">
+    <p v-if="inputIsInvalid" class="ml-2 text-secondary-light">
       {{ invalidText }}
     </p>
   </div>
@@ -66,7 +67,7 @@ export default {
       type: String
     }
   },
-  emits: ["update:modelValue"],
+  emits: ["update:modelValue", "blur", "change"],
   data() {
     return {
       randomString: Math.random().toString(36).substr(2, 5)
@@ -83,6 +84,7 @@ export default {
   methods: {
     setData(event) {
       this.$emit("update:modelValue", event.target.value);
+      this.$emit('change')
     },
   },
 };

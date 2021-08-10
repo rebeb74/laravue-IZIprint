@@ -78,7 +78,7 @@ export default {
         ? "bg-primary-light cursor-not-allowed text-primary"
         : this.color
         ? this.color + " hover:bg-secondary-dark cursor-pointer text-gray-200 "
-        : "bg-primary-dark hover:bg-secondary-dark cursor-pointer text-gray-200 ";
+        : "bg-primary hover:bg-secondary-dark cursor-pointer text-gray-200 ";
     },
   },
   watch: {
